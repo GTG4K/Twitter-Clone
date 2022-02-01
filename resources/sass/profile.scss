@@ -1,0 +1,121 @@
+.profile_flex{
+    display: flex;
+    align-items: center;
+}
+
+// main styling
+.profile_container{
+    width: 800px;
+    margin: auto;
+
+    margin: 50px 0;
+
+    font-family: 'Varela Round', sans-serif;
+    font-size: 12px;
+    color: white;
+    text-decoration: none;
+}
+
+.profile_container > img{
+    width: 175px;
+    height: 175px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 80px;
+}
+
+.profile_frame .top_row{
+    margin: 10px 15px;
+
+}
+
+.profile_frame .top_row h1{
+    margin: 5px 10px;
+}
+
+.profile_frame .top_row a{
+    padding: 5px 25px;
+    margin: 0 10px;
+
+    background: #1f79ff;
+    color: white;
+    border:solid;
+    border-width: 1px;
+    border-color: #414141;
+    border-radius: 6px;
+
+    font-family: 'Varela Round', sans-serif;
+}
+
+.profile_frame .top_row button{
+    padding: 5px 25px;
+    margin: 0 10px;
+
+    background: #1f79ff;
+    color: white;
+    border:solid;
+    border-width: 1px;
+    border-color: #414141;
+    border-radius: 6px;
+
+    font-family: 'Varela Round', sans-serif;
+}
+
+.profile_frame .mid_row{
+    margin: 25px 10px;
+}
+
+.profile_frame .mid_row h3{
+    padding: 0 15px;
+}
+
+.profile_frame .bio{
+    margin: 0 25px;
+}
+
+// Content box 
+
+.content_box{
+    width: 800px;
+}
+
+.content_box .content_type{
+    margin: 16px 0;
+    border-top: solid;
+    border-color: #414141;
+    border-width: 1px;
+    display: flex;
+    justify-content: center;
+}
+
+.content_box .content_type a{
+    padding: 15px 15px;
+    margin: 0 10px;
+    transition: 0.2s;
+}
+
+.content_box .content_type a:hover{
+    background-color: #414141;
+    padding: 15px 15px;
+    margin: 0 10px;
+    transition: 0.2s;
+}
+
+.content_box .content_display{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.content_display .content_item img{
+    margin: 15px 0;
+    display: block;
+    width: 225px;
+    height: 225px;
+    object-fit: cover;
+    transition: 0.2s;
+}
+
+.content_display .content_item img:hover{
+    box-shadow: 8px 8px 8px 8px #1616166e;
+    transition: 0.2s;
+}

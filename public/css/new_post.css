@@ -1,0 +1,33 @@
+.new_post {
+  background: rgba(42, 42, 42, 0.3);
+  border-style: solid;
+  border-color: #414141;
+  border-width: 1px;
+  border-radius: 7px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-bottom: 20px;
+  font-family: "Varela Round", sans-serif;
+  font-size: 12px;
+  color: white;
+  text-decoration: none;
+  min-width: 575px;
+}
+
+.new_post .post_input {
+  display: flex;
+  justify-content: center;
+}
+
+.new_post img {
+  border-radius: 50%;
+  width: 55px;
+  margin: 10px;
+}
+
+.new_post input[type=text] {
+  background: rgba(42, 42, 42, 0);
+  width: 500px;
+  border: none;
+}

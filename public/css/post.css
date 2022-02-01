@@ -1,0 +1,76 @@
+.post {
+  background: rgba(42, 42, 42, 0.3);
+  border-style: solid;
+  border-color: #414141;
+  border-width: 1px;
+  border-radius: 7px;
+  width: 577px;
+  margin-bottom: 20px;
+  font-family: "Varela Round", sans-serif;
+  font-size: 12px;
+  color: white;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.post:hover {
+  background: rgba(61, 61, 61, 0.3);
+  border-color: #5e5e5e;
+  box-shadow: 8px 8px 8px 8px #1616166e;
+  transition: 0.2s;
+}
+
+.post img {
+  display: block;
+  width: 575px;
+  padding: 0;
+  margin: auto;
+}
+
+.post a > img {
+  display: block;
+  width: 575px;
+  padding: 0;
+  margin: auto;
+}
+
+.post .author {
+  display: flex;
+  align-items: center;
+  padding: 7px 10px;
+}
+
+.post > p {
+  padding: 10px 65px;
+}
+
+.post .author img {
+  display: block;
+  border-radius: 50%;
+  width: 45px;
+  margin-right: 10px;
+}
+
+.post .author .author_details h3 {
+  font-size: 15px;
+  padding-bottom: 5px;
+}
+
+.post .author > a {
+  font-size: 13px;
+}
+
+.post .author .author_details p {
+  color: #bebebe;
+}
+
+.post .author .author_details p a {
+  font-size: 13px;
+  color: #1f79ff;
+}
+
+.post_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,0 +1,101 @@
+.login_form{
+    text-align: center;
+    background: rgba(42, 42, 42, 0.3);
+    border-style: solid;
+    border-color: #414141;
+    border-width: 1px;
+    border-radius: 7px;
+    min-width: 400px;
+    width: fit-content;
+    padding:20px;
+
+    margin-top: 120px;
+    margin-bottom: 20px;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 12px;
+    color: white;
+    text-decoration: none;
+}
+
+.login_form img{
+    width: 50px;
+    padding-bottom:10px ;
+}
+
+.login_form h2{
+    padding-bottom: 10px;
+}
+
+.login_form input[type=email]{
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    background-color: #1f1f1f;
+    border: solid;
+    width: 75%;
+    height: 40px;
+    border-width: 1px;
+    border-color: #414141;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.login_form input[type=password]{
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    background-color: #1f1f1f;
+    border: solid;
+    width: 75%;
+    height: 40px;
+    border-width: 1px;
+    border-color: #414141;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.login_form button{
+    display: block;
+    margin: 20px auto;
+    background: #1f1f1f;
+    color: white;
+    border:solid;
+    border-width: 1px;
+    border-color: #414141;
+    border-radius: 6px;
+    width: 75%;
+    height: 40px;
+}
+
+
+
+
+
+
+.no_account{
+    text-align: center;
+    background: rgba(42, 42, 42, 0.3);
+    border-style: solid;
+    border-color: #414141;
+    border-width: 1px;
+    border-radius: 7px;
+    min-width: 400px;
+    width: fit-content;
+    padding:20px;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 12px;
+    color: white;
+    text-decoration: none;
+}
+
+.no_account .register{
+    display: flex;
+    justify-content: center;
+}
+
+.no_account h3{
+    margin-right: 10px;
+}

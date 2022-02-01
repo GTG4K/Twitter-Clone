@@ -1,0 +1,16 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/css/search.css": "/css/search.css",
+    "/css/header.css": "/css/header.css",
+    "/css/main.css": "/css/main.css",
+    "/css/_variables.css": "/css/_variables.css",
+    "/css/viewPost.css": "/css/viewPost.css",
+    "/css/dropdown.css": "/css/dropdown.css",
+    "/css/profile.css": "/css/profile.css",
+    "/css/new_post.css": "/css/new_post.css",
+    "/css/sidebar.css": "/css/sidebar.css",
+    "/css/container.css": "/css/container.css",
+    "/css/login_form.css": "/css/login_form.css",
+    "/css/post.css": "/css/post.css"
+}
