@@ -41,6 +41,20 @@
   transition: 0.2s;
 }
 
+.login_form input[type=text] {
+  display: block;
+  text-align: center;
+  margin: 10px auto;
+  background-color: #1f1f1f;
+  border: solid;
+  width: 75%;
+  height: 40px;
+  border-width: 1px;
+  border-color: #414141;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
 .login_form input[type=password] {
   display: block;
   text-align: center;

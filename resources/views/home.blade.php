@@ -53,6 +53,7 @@
         <div class="popular_posts">
             <h1>Most popular</h1>
             @foreach ($popular_posts as $pp)
+            <a href="/post/{{$pp['id']}}">
                 <div class="popular_post">
                     <div class="popular_post_details">
                         <h4> posted by {{$pp['author']}}</h4>
@@ -61,6 +62,7 @@
                     </div>
                     <img src="{{$pp['image']}}" alt="">
                 </div>
+            </a>
             @endforeach
         </div>
     </div>

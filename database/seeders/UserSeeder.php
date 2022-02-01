@@ -23,13 +23,5 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'profile_picture' => 'https://wallpapercave.com/uwp/uwp1644642.jpeg'
         ])->save();
-
-        $user = new User;
-        $user->fill([
-            'name' => 'tarkhna',
-            'email' => 'tarkhna@gmail.com',
-            'password' => Hash::make('password'),
-            'profile_picture' => 'https://yt3.ggpht.com/ytc/AKedOLTOULukEPaBheOiLRBb7wLLftHW_8vU9LIC_4jmGHw=s900-c-k-c0x00ffffff-no-rj'
-        ])->save();
     }
 }

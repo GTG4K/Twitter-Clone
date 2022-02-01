@@ -60,6 +60,10 @@
   transition: 0.2s;
 }
 
+.popular_post p {
+  font-size: 12px;
+}
+
 .popular_post:hover {
   background: #2a2a2a;
   transition: 0.2s;

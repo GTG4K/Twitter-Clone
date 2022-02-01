@@ -43,4 +43,27 @@ class HomeController extends Controller
 
         return view('profile/profile', ['user'=>$user, 'posts'=>$posts]);
     }
+
+    public function view_profile_comments($id){
+        $user = User::find($id);
+        $posts = Post::where('user_id',$id)->get();
+        $comments = Comment::where('user_id',$id)->get();
+
+        $posts_list = [];
+        $op_list=[];
+
+        for($i = 0; $i < $comments->count(); $i++){
+            
+            $post = Post::find($comments[$i]->post_id);
+            array_push($posts_list, $post);
+
+        }
+        for($i = 0; $i < sizeof($posts_list); $i++){
+
+            $user_list = User::find($posts_list[$i]->user_id);
+            array_push($op_list, $user_list);
+        }
+
+        return view('profile/comments', ['user'=>$user, 'posts_list' => $posts_list, 'users'=>$op_list, 'posts'=>$posts, 'comments'=>$comments]);
+    }
 }

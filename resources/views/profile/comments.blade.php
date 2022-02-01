@@ -40,14 +40,23 @@
         <a href="">Liked</a>
     </div>
 
-    <div class="content_display">
-        @foreach ($posts as $post)
-        <div class="content_item">
-            <a href="/post/{{$post['id']}}">
-                <img src="{{$post['image']}}" alt="">
-            </a>
+    <div class="content_display_comment">
+        @for($i=0; $i < $comments->count(); $i++)
+        <div class="content_comment">
+            <div class="comment_flex">
+                <a href="/profile/{{$users[$i]->id}}">
+                    <img class="profile_picture" src="{{$users[$i]->profile_picture}}" alt="">
+                </a>
+                <i class="fas fa-arrow-right arrow"></i>
+                <a class='comment_details_a' href="/post/{{$comments[$i]['post_id']}}">
+                <div class='comment_details'>
+                    <img class="profile_picture" src="{{$user->profile_picture}}" alt="">
+                    <p>{{$comments[$i]['comment']}}</p>    
+                </div>
+                </a>
+            </div>
         </div>
-        @endforeach
+        @endfor
     </div>
     
 </div>

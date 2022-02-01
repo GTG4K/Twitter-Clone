@@ -8,10 +8,20 @@
         <h2>Welcome Back!</h2>
         @csrf
         <input  type="email" name="email" placeholder="enter your email">
+        @error('email')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
         <input  type="password" name="password" placeholder="enter your password">
+        @error('password')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
 
         <button type="submit">Log in</button>
-        <a class="btn btn-link" href="{{ route('password.request') }}"> Forgot your password? </a>
+        <a class="btn btn-link" href="#{{--{{ route('password.request') }}--}}"> Forgot your password? </a>
     </form>
 </div>
 

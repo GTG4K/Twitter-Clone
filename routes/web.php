@@ -25,6 +25,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //profile
 Route::get('/profile/{id}', [HomeController::class, 'view_profile']);
+Route::get('/profile/{id}/comments', [HomeController::class, 'view_profile_comments']);
 
 //posts
 Route::get('/post/{id}', [PostController::class, 'view_post']);
