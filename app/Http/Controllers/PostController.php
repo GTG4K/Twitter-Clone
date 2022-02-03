@@ -6,10 +6,16 @@ use App\Models\Post;
 use App\Models\User;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File; 
 use Illuminate\Support\Facades\Redirect;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function view_post($id){
         $post = Post::find($id);
         $users = User::all();
@@ -22,26 +28,24 @@ class PostController extends Controller
     // Create Post
     public function new_post(Request $request){
 
+        $request->validate([
+            'description' => 'required',
+            'image' => 'required'
+        ]);
+
         $user = User::find($request['user_id']);
         $post = new Post;
 
+        $image = $request->file('image');
+        $newImageName = time() . '-' . $user['name'] . '.' . $image->extension();
+        $image->move('images/posts', $newImageName);
+
         $post -> fill([
             'author' => $user['name'],
+            'image' => '\images\posts\\'.$newImageName,
             'description' => $request['description'],
             'user_id' => $request['user_id']
         ])->save();
-
-        if($request->image){
-            $image = $request->file('image');
-
-            $newImageName = time() . '-' . $user['name'] . '.' . $image->extension();
-
-            $image->move(public_path('images'), $newImageName);
-
-            $post -> fill([
-                'image' => '/images/'.$newImageName
-            ])->save();
-        }
 
         return redirect('/home');
     }
@@ -49,6 +53,12 @@ class PostController extends Controller
     // Delete Post
     public function delete_post(Request $request){
         $post = Post::find($request->post_id);
+        $image = $post->image;
+
+        if ($image) {
+            $image_name = explode("\\",$image,2);
+            unlink($image_name[1]);
+        }
 
         $post->delete();
 
@@ -57,6 +67,10 @@ class PostController extends Controller
 
     //create comment
     public function new_comment(Request $request){
+
+        $request->validate([
+            'comment' => 'required',
+        ]);
 
         $user = User::find($request['user_id']);
         $post = Post::find($request['post_id']);

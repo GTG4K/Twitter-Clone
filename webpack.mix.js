@@ -25,4 +25,5 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/profile.scss', 'public/css')
     .sass('resources/sass/dropdown.scss', 'public/css')
     .sass('resources/sass/viewPost.scss', 'public/css')
+    .sass('resources/sass/edit_profile.scss', 'public/css')
     .sass('resources/sass/_variables.scss', 'public/css');

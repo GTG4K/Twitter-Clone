@@ -47,10 +47,13 @@
 
         <a href="/home"><img class="logo" src="/image/aeedzlogo.svg"></a>
 
-        <div class='search_dark'>
+        @if (Auth::user())
+        <div class='search_dark header_search_margin'>
             <input type="text" placeholder="search">
         </div>
+        @endif
             
+        @if (Auth::user())
         <nav class="nav_links">
             <ul>
                 <li><a href="/home"><i class="fas fa-home"></i></a></li>
@@ -58,7 +61,7 @@
                 <li><a href="#"><i class="far fa-bell"></i></a></li>
             </ul>
 
-            @if (Auth::user())
+
             <div class="more_options">
                 <img src="{{ Auth::user()->profile_picture }}" alt="">
                 <div class="dropdown_content">
@@ -69,10 +72,11 @@
                     </form>
                 </div>
             </div>
-            @endif
         </nav>
+        @endif
 
     </header>
+
     <div class="spacer_for_header"></div>
 
     <div class="container">

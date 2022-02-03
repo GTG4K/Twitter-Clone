@@ -3,17 +3,27 @@
 @section('content')
 
 <div class="profile_container">
-    <img src="{{$user['profile_picture']}}" alt="">
+    <img class="profile_backdrop"src="{{$user['profile_background']}}" alt="">
+    <img class="profile_picture" src="{{$user['profile_picture']}}" alt="">
 
     <div class="profile_frame">
         <div class="profile_flex top_row">
             <h1>{{$user['name']}}</h1>
 
             @if (Auth::user()->id == $user['id'])
-                <a href="edit/{{$user['id']}}">edit</a>
+                <a class='edit' href="{{$user['id']}}/edit">edit</a>
             @else
                 <button>Message</button>
                 <button>Follow</button>
+            @endif
+            @if ($user->discord)
+                <a class='linkout discord' href=""><i class="fab fa-discord"></i></a>
+            @endif
+            @if ($user->instagram)
+                <a class='linkout instagram' href=""><i class="fab fa-instagram"></i></a>
+            @endif
+            @if ($user->twitter)
+                <a class='linkout twitter' href=""><i class="fab fa-twitter"></i></a>
             @endif
         </div>
 
@@ -24,10 +34,7 @@
         </div>
 
         <p class="profile_flex bio">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Ipsam odio repellat in, impedit atque facilis? 
-            Reiciendis eligendi hic odit, tempora obcaecati similique, 
-            quasi architecto aliquam eaque autem facere esse provident!
+            {{$user->bio}}
         </p>
     </div>
 </div>

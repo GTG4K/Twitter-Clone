@@ -39,7 +39,7 @@ class HomeController extends Controller
     public function view_profile($id){
 
         $user = User::find($id);
-        $posts = Post::where('user_id',$id)->get();
+        $posts = Post::where('user_id',$id)->orderby('created_at', 'desc')->get();
 
         return view('profile/profile', ['user'=>$user, 'posts'=>$posts]);
     }

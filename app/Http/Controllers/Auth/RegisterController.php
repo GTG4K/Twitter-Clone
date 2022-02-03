@@ -64,10 +64,37 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $rand_quint = rand(0,4);
+        switch ($rand_quint) {
+            case 0:
+                $pfp = '\images\profiles\pictures\default_ichika.png';
+                $bg =  '\images\profiles\backgrounds\default_ichika_bg.png';
+                break;
+            case 1:
+                $pfp = '\images\profiles\pictures\default_itsuki.png';
+                $bg =  '\images\profiles\backgrounds\default_itsuki_bg.png';
+                break;
+            case 2:
+                $pfp = '\images\profiles\pictures\default_miku.png';
+                $bg =  '\images\profiles\backgrounds\default_miku_bg.png';
+                break;
+            case 3:
+                $pfp = '\images\profiles\pictures\default_nino.png';
+                $bg =  '\images\profiles\backgrounds\default_nino_bg.png';
+                break;    
+            case 4:
+                $pfp = '\images\profiles\pictures\default_yotsuba.png';
+                $bg =  '\images\profiles\backgrounds\default_yotsuba_bg.png';
+                break; 
+        }
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+
+            'profile_picture' => $pfp,
+            'profile_background' => $bg
         ]);
     }
 }

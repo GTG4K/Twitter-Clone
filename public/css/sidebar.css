@@ -71,7 +71,10 @@
 
 .popular_post img {
   display: block;
+  height: 100px;
   width: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 6px;
   margin: 10px;
 }

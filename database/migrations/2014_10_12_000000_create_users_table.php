@@ -16,11 +16,20 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('profile_picture')->default('https://avatarfiles.alphacoders.com/248/thumb-1920-248113.jpg');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+
+            $table->string('profile_picture');
+            $table->string('profile_background');
+            $table->string('bio')->default('Fūtarō-kun? Uesugi! Oki nasai yo!? Fūtaro ~~! Uesugi-sa ~ n! Uesugi-kun okite? https://www.youtube.com/watch?v=tF04aIba5p8&t=57s');
+
+            $table->string('discord')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('website')->nullable();
+
             $table->timestamps();
         });
     }

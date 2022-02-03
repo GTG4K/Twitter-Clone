@@ -32,6 +32,8 @@ li, a, input{
 .nav_links img{
     border-radius: 50%;
     width: 40px;
+    height: 40px;
+    object-fit: cover;
     transition: all 0.2s ease 0s;
     cursor: pointer;
 }
@@ -55,6 +57,9 @@ li, a, input{
     background-color: rgba(93, 93, 93, 20%)
 }
 
+
+
 .spacer_for_header{
     padding-bottom: 62px;
 }
+

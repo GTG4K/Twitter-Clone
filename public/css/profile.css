@@ -13,13 +13,25 @@
   text-decoration: none;
 }
 
-.profile_container > img {
+.profile_container > .profile_backdrop {
+  position: absolute;
+  width: 800px;
+  top: 8%;
+  filter: opacity(0.4) blur(4px) brightness(0.7);
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 250px;
+  z-index: -1;
+}
+
+.profile_container > .profile_picture {
   width: 175px;
   height: 175px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
   margin-right: 80px;
+  z-index: 2;
 }
 
 .profile_frame .top_row {
@@ -30,22 +42,67 @@
   margin: 5px 10px;
 }
 
-.profile_frame .top_row a {
+.profile_frame .top_row .edit {
   padding: 5px 25px;
   margin: 0 10px;
-  background: #1f79ff;
+  background: #534892;
   color: white;
   border: solid;
   border-width: 1px;
   border-color: #414141;
   border-radius: 6px;
+  transition: 0.2s;
   font-family: "Varela Round", sans-serif;
+}
+
+.profile_frame .top_row .edit:hover {
+  background: #6b5dbd;
+  transition: 0.2s;
+}
+
+.profile_frame .top_row .linkout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 5px;
+  margin: 0 5px;
+  width: 30px;
+  background: rgba(141, 141, 141, 0.2);
+  color: #1c1d1f;
+  border: solid;
+  border-width: 1px;
+  border-color: #414141;
+  border-radius: 6px;
+  transition: 0.2s;
+  font-family: "Varela Round", sans-serif;
+}
+
+.profile_frame .top_row .linkout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 5px;
+  margin: 0 5px;
+  width: 30px;
+  background: rgba(141, 141, 141, 0.2);
+  color: #1c1d1f;
+  border: solid;
+  border-width: 1px;
+  border-color: #1c1d1f;
+  border-radius: 4px;
+  transition: 0.2s;
+  font-family: "Varela Round", sans-serif;
+}
+
+.profile_frame .top_row .linkout:hover {
+  background: rgba(141, 141, 141, 0.4);
+  transition: 0.2s;
 }
 
 .profile_frame .top_row button {
   padding: 5px 25px;
   margin: 0 10px;
-  background: #1f79ff;
+  background: #2b2a30;
   color: white;
   border: solid;
   border-width: 1px;
@@ -104,11 +161,13 @@
   height: 225px;
   -o-object-fit: cover;
      object-fit: cover;
+  filter: brightness(0.8);
   transition: 0.2s;
 }
 
 .content_display .content_item img:hover {
   box-shadow: 8px 8px 8px 8px #1616166e;
+  filter: brightness(1);
   transition: 0.2s;
 }
 

@@ -10,10 +10,23 @@
             <div class="new_post">
                 <div class="post_input">
                     <img src="{{ Auth::user()->profile_picture }}" alt="">
-                    <input type="text" placeholder="What's on your mind?" name='description'>
+                    @if ($errors->any()) 
+                    <input type="text" placeholder="{{$errors->first()}}"  name='description'>
+                    @else
+                    <input type="text" placeholder="What's on your mind?""  name='description'>
+                    @endif
                 </div>
                 <input type="hidden" value="{{Auth::user()->id}}" name="user_id">
-                <input type="file" name="image">
+                <div class="post_actions">
+                    <div class="new_post_file_upload">
+                        <label for="image">
+                            <p> Upload File </p>
+                            <i class="fas fa-file-upload"></i> 
+                        </label>
+                        <input type="file" name="image" id="image">
+                    </div>
+                    <button>Post</button>
+                </div>
             </div>
         </form>
 
@@ -25,7 +38,7 @@
                         <a href="/profile/{{$post->user_id}}"><img src="{{$users[$post['user_id']-1]['profile_picture']}}" alt=""></a>
                         <a href="/profile/{{$post->user_id}}"><h3>{{$post['author']}}</h3></a>
                 </div>
-                @if ($post['user_id'] ==  Auth::user()->id)
+                @if ($post['user_id'] ==  Auth::user()->id or Auth::user()->id == 1)
                 <div class="more_options">
                     <button class="dropbtn"><i class="fas fa-ellipsis-h"></i></button>
                     <div class="dropdown_content">

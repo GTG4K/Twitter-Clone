@@ -18,10 +18,13 @@ class UserSeeder extends Seeder
     {
         $user = new User;
         $user->fill([
-            'name' => 'Zer02',
-            'email' => 'Zer02@gmail.com',
+            'name' => 'Raiha',
+            'email' => 'Raiha@gmail.com',
             'password' => Hash::make('password'),
-            'profile_picture' => 'https://wallpapercave.com/uwp/uwp1644642.jpeg'
+            'profile_picture' => '\images\profiles\pictures\default_raiha.png',
+            'profile_background' => '\images\profiles\backgrounds\default_raiha_bg.jpg',
+            'bio' => 'Admin Raiha Girlboss B)'
+
         ])->save();
     }
 }

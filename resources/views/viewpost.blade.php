@@ -36,8 +36,14 @@
             <div class="new_post">
                 <div class="post_input">
                     <img src="{{ Auth::user()->profile_picture }}" alt="">
-                    <input type="text" placeholder="What's on your mind?" name='comment'>
+                    @if ($errors->any()) 
+                    <input type="text" placeholder="{{$errors->first()}}"  name='comment'>
+                    @else
+                    <input type="text" placeholder="What's on your mind?""  name='comment'>
+                    @endif
+                    <button>Comment</button>
                 </div>
+
                 <input type="hidden" value="{{Auth::user()->id}}" name="user_id">
                 <input type="hidden" value="{{$post['id']}}" name="post_id">
             </div>

@@ -3,8 +3,11 @@
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +27,19 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //profile
-Route::get('/profile/{id}', [HomeController::class, 'view_profile']);
-Route::get('/profile/{id}/comments', [HomeController::class, 'view_profile_comments']);
+Route::get('/profile/{id}', [ProfileController::class, 'view_profile']);
+Route::get('/profile/{id}/comments', [ProfileController::class, 'view_profile_comments']);
+Route::get('/profile/{id}/edit', [ProfileController::class, 'edit_profile']);
+
+//profile Edit -
+    //Details
+    Route::post('/profile/edit/details', [ProfileController::class, 'profile_edit_details']);
+
+    //Media
+    Route::post('/profile/edit/media', [ProfileController::class, 'profile_edit_media']);
+
+    //Bio
+    Route::post('/profile/edit/bio', [ProfileController::class, 'profile_edit_bio']);
 
 //posts
 Route::get('/post/{id}', [PostController::class, 'view_post']);

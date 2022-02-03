@@ -16,7 +16,7 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
 
             $table->id();
-            $table->string('image')->default('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI4bywoSgMNUhs4KMvNDGIx6z_uMt9KxiygB_qQSR7GnW_2-G9A8aADGPYT5jO3jk6WfM&usqp=CAU');
+            $table->string('image');
             $table->string('author');
             $table->string('description');
             $table->integer('likes')->default(0);

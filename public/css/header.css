@@ -32,6 +32,9 @@ li, a, input {
 .nav_links img {
   border-radius: 50%;
   width: 40px;
+  height: 40px;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: all 0.2s ease 0s;
   cursor: pointer;
 }

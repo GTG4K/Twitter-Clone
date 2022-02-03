@@ -21,8 +21,17 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'profile_picture'
+
+        'profile_picture',
+        'profile_background',
+        'bio',
+
+        'discord',
+        'twitter',
+        'instagram'
     ];
+
+
 
     /**
      * The attributes that should be hidden for serialization.
