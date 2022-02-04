@@ -1,8 +1,6 @@
 @extends('layouts.layout')
 
 @section('content')
-
-    <link href="{{ asset('/css/edit_profile.css') }}" rel="stylesheet"> 
     
     <div class="edit_profile_container">
 
@@ -41,6 +39,11 @@
                     <div class="edit_profile_item_input_form">
                         <div class="label">instagram</div>
                         <input type="text" placeholder="instagram handle - 'user'" name="instagram">
+                        <div class="edit_profile_item_placeholder"></div>
+                    </div>
+                    <div class="edit_profile_item_input_form">
+                        <div class="label">Website</div>
+                        <input type="text" placeholder="website url" name="web">
                         <div class="edit_profile_item_placeholder"></div>
                     </div>
 
