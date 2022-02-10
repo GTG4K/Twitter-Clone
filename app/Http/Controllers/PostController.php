@@ -99,9 +99,8 @@ class PostController extends Controller
                       break;
             }
 
-            $day_split = explode('0', $month_split[1]);
-            array_push($time_stamp, $month, $day_split[1],  $year_split[0]);
-            array_push($comment_time_stamps, $time_stamp);          
+            array_push($time_stamp, $month, $month_split[1],  $year_split[0]);
+            array_push($comment_time_stamps, $time_stamp);           
         }   
 
         // getting post timestamp
@@ -150,8 +149,7 @@ class PostController extends Controller
                 $month = 'Dec ';
                 break;
         }
-        $day_split = explode('0', $month_split[1]);
-        array_push($time_stamp, $month, $day_split[1],  $year_split[0]);
+        array_push($time_stamp, $month, $month_split[1],  $year_split[0]);
         array_push($post_time_stamp, $time_stamp);                                
         // end getting timestamp
 

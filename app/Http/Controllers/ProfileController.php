@@ -126,10 +126,9 @@ class ProfileController extends Controller
                     $month = 'Dec ';
                     break;
             }
-            $day_split = explode('0', $month_split[1]);
-
-            array_push($time_stamp, $month, $day_split[1],  $year_split[0]);
-            array_push($time_stamps, $time_stamp);       
+            
+            array_push($time_stamp, $month, $month_split[1],  $year_split[0]);
+            array_push($time_stamps, $time_stamp);      
 
             //make Like item in the database
             if(Like::Where('user_id', Auth::user()->id)->Where('post_id', $posts[$i]->id)->count() > 0){

@@ -106,8 +106,8 @@ class HomeController extends Controller
                     $month = 'Dec ';
                     break;
             }
-            $day_split = explode('0', $month_split[1]);
-            array_push($time_stamp, $month, $day_split[1],  $year_split[0]);
+            
+            array_push($time_stamp, $month, $month_split[1],  $year_split[0]);
             array_push($time_stamps, $time_stamp);     
 
 
@@ -167,6 +167,7 @@ class HomeController extends Controller
             $reposts = Repost::Where('post_id', $posts[$i]->id)->Where('reposted', 1)->count();
             array_push($post_reposts_count, $reposts);
         }
+
 
         return view('home', ['posts'=>$posts, 
         'post_authors'=> $post_authors, 
