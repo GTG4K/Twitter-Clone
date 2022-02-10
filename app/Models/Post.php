@@ -9,7 +9,6 @@ class Post extends Model
 {
     use HasFactory;
     public $fillable = [
-        'author',
         'image',
         'description',
         'likes',

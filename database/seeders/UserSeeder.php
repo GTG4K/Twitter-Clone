@@ -18,13 +18,22 @@ class UserSeeder extends Seeder
     {
         $user = new User;
         $user->fill([
-            'name' => 'Raiha',
-            'email' => 'Raiha@gmail.com',
+            'name' => 'Tarkhna',
+            'email' => 'tarkhna@gmail.com',
             'password' => Hash::make('password'),
-            'profile_picture' => '\images\profiles\pictures\default_raiha.png',
-            'profile_background' => '\images\profiles\backgrounds\default_raiha_bg.jpg',
-            'bio' => 'Admin Raiha Girlboss B)'
+            'profile_picture' => '\images\profiles\pictures\default_Tarkhna.png',
+            'profile_background' => '\images\profiles\backgrounds\default_Tarkhna_bg.gif',
+            'bio' => 'Tarkhna Gigachadi'
+        ])->save();
 
+        $user = new User;
+        $user->fill([
+            'name' => 'Misato',
+            'email' => 'misato@gmail.com',
+            'password' => Hash::make('password'),
+            'profile_picture' => '\images\profiles\pictures\default_Tarkhna.png',
+            'profile_background' => '\images\profiles\backgrounds\default_Tarkhna_bg.gif',
+            'bio' => 'Mommysato Mommussy'
         ])->save();
     }
 }

@@ -27598,10 +27598,10 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
-/***/ "./resources/sass/post.scss":
-/*!**********************************!*\
-  !*** ./resources/sass/post.scss ***!
-  \**********************************/
+/***/ "./resources/sass/view_post.scss":
+/*!***************************************!*\
+  !*** ./resources/sass/view_post.scss ***!
+  \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -27637,62 +27637,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/sidebar.scss":
-/*!*************************************!*\
-  !*** ./resources/sass/sidebar.scss ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/sass/new_post.scss":
-/*!**************************************!*\
-  !*** ./resources/sass/new_post.scss ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
 /***/ "./resources/sass/profile.scss":
 /*!*************************************!*\
   !*** ./resources/sass/profile.scss ***!
   \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/sass/dropdown.scss":
-/*!**************************************!*\
-  !*** ./resources/sass/dropdown.scss ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/sass/viewPost.scss":
-/*!**************************************!*\
-  !*** ./resources/sass/viewPost.scss ***!
-  \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -27754,9 +27702,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/header.scss":
+/***/ "./resources/sass/navbar.scss":
 /*!************************************!*\
-  !*** ./resources/sass/header.scss ***!
+  !*** ./resources/sass/navbar.scss ***!
   \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -27767,10 +27715,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/search.scss":
-/*!************************************!*\
-  !*** ./resources/sass/search.scss ***!
-  \************************************/
+/***/ "./resources/sass/home.scss":
+/*!**********************************!*\
+  !*** ./resources/sass/home.scss ***!
+  \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -40385,20 +40333,16 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
-/******/ 			"css/app": 0,
-/******/ 			"css/search": 0,
-/******/ 			"css/header": 0,
 /******/ 			"css/main": 0,
+/******/ 			"css/app": 0,
+/******/ 			"css/home": 0,
+/******/ 			"css/navbar": 0,
 /******/ 			"css/_variables": 0,
 /******/ 			"css/edit_profile": 0,
-/******/ 			"css/viewPost": 0,
-/******/ 			"css/dropdown": 0,
 /******/ 			"css/profile": 0,
-/******/ 			"css/new_post": 0,
-/******/ 			"css/sidebar": 0,
 /******/ 			"css/container": 0,
 /******/ 			"css/login_form": 0,
-/******/ 			"css/post": 0
+/******/ 			"css/view_post": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -40448,21 +40392,17 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/search","css/header","css/main","css/_variables","css/edit_profile","css/viewPost","css/dropdown","css/profile","css/new_post","css/sidebar","css/container","css/login_form","css/post"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/search","css/header","css/main","css/_variables","css/edit_profile","css/viewPost","css/dropdown","css/profile","css/new_post","css/sidebar","css/container","css/login_form","css/post"], () => (__webpack_require__("./resources/sass/app.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/search","css/header","css/main","css/_variables","css/edit_profile","css/viewPost","css/dropdown","css/profile","css/new_post","css/sidebar","css/container","css/login_form","css/post"], () => (__webpack_require__("./resources/sass/main.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/search","css/header","css/main","css/_variables","css/edit_profile","css/viewPost","css/dropdown","css/profile","css/new_post","css/sidebar","css/container","css/login_form","css/post"], () => (__webpack_require__("./resources/sass/header.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/search","css/header","css/main","css/_variables","css/edit_profile","css/viewPost","css/dropdown","css/profile","css/new_post","css/sidebar","css/container","css/login_form","css/post"], () => (__webpack_require__("./resources/sass/search.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/search","css/header","css/main","css/_variables","css/edit_profile","css/viewPost","css/dropdown","css/profile","css/new_post","css/sidebar","css/container","css/login_form","css/post"], () => (__webpack_require__("./resources/sass/post.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/search","css/header","css/main","css/_variables","css/edit_profile","css/viewPost","css/dropdown","css/profile","css/new_post","css/sidebar","css/container","css/login_form","css/post"], () => (__webpack_require__("./resources/sass/login_form.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/search","css/header","css/main","css/_variables","css/edit_profile","css/viewPost","css/dropdown","css/profile","css/new_post","css/sidebar","css/container","css/login_form","css/post"], () => (__webpack_require__("./resources/sass/container.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/search","css/header","css/main","css/_variables","css/edit_profile","css/viewPost","css/dropdown","css/profile","css/new_post","css/sidebar","css/container","css/login_form","css/post"], () => (__webpack_require__("./resources/sass/sidebar.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/search","css/header","css/main","css/_variables","css/edit_profile","css/viewPost","css/dropdown","css/profile","css/new_post","css/sidebar","css/container","css/login_form","css/post"], () => (__webpack_require__("./resources/sass/new_post.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/search","css/header","css/main","css/_variables","css/edit_profile","css/viewPost","css/dropdown","css/profile","css/new_post","css/sidebar","css/container","css/login_form","css/post"], () => (__webpack_require__("./resources/sass/profile.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/search","css/header","css/main","css/_variables","css/edit_profile","css/viewPost","css/dropdown","css/profile","css/new_post","css/sidebar","css/container","css/login_form","css/post"], () => (__webpack_require__("./resources/sass/dropdown.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/search","css/header","css/main","css/_variables","css/edit_profile","css/viewPost","css/dropdown","css/profile","css/new_post","css/sidebar","css/container","css/login_form","css/post"], () => (__webpack_require__("./resources/sass/viewPost.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/search","css/header","css/main","css/_variables","css/edit_profile","css/viewPost","css/dropdown","css/profile","css/new_post","css/sidebar","css/container","css/login_form","css/post"], () => (__webpack_require__("./resources/sass/edit_profile.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/search","css/header","css/main","css/_variables","css/edit_profile","css/viewPost","css/dropdown","css/profile","css/new_post","css/sidebar","css/container","css/login_form","css/post"], () => (__webpack_require__("./resources/sass/_variables.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/main","css/app","css/home","css/navbar","css/_variables","css/edit_profile","css/profile","css/container","css/login_form","css/view_post"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/main","css/app","css/home","css/navbar","css/_variables","css/edit_profile","css/profile","css/container","css/login_form","css/view_post"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/main","css/app","css/home","css/navbar","css/_variables","css/edit_profile","css/profile","css/container","css/login_form","css/view_post"], () => (__webpack_require__("./resources/sass/main.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/main","css/app","css/home","css/navbar","css/_variables","css/edit_profile","css/profile","css/container","css/login_form","css/view_post"], () => (__webpack_require__("./resources/sass/navbar.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/main","css/app","css/home","css/navbar","css/_variables","css/edit_profile","css/profile","css/container","css/login_form","css/view_post"], () => (__webpack_require__("./resources/sass/home.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/main","css/app","css/home","css/navbar","css/_variables","css/edit_profile","css/profile","css/container","css/login_form","css/view_post"], () => (__webpack_require__("./resources/sass/view_post.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/main","css/app","css/home","css/navbar","css/_variables","css/edit_profile","css/profile","css/container","css/login_form","css/view_post"], () => (__webpack_require__("./resources/sass/login_form.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/main","css/app","css/home","css/navbar","css/_variables","css/edit_profile","css/profile","css/container","css/login_form","css/view_post"], () => (__webpack_require__("./resources/sass/container.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/main","css/app","css/home","css/navbar","css/_variables","css/edit_profile","css/profile","css/container","css/login_form","css/view_post"], () => (__webpack_require__("./resources/sass/profile.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/main","css/app","css/home","css/navbar","css/_variables","css/edit_profile","css/profile","css/container","css/login_form","css/view_post"], () => (__webpack_require__("./resources/sass/edit_profile.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/main","css/app","css/home","css/navbar","css/_variables","css/edit_profile","css/profile","css/container","css/login_form","css/view_post"], () => (__webpack_require__("./resources/sass/_variables.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

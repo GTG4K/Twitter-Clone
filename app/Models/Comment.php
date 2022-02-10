@@ -9,8 +9,8 @@ class Comment extends Model
 {
     use HasFactory;
     public $fillable = [
-        'author',
         'comment',
+        'image',
         'likes',
         'user_id',
         'post_id'

@@ -2,6 +2,9 @@
 
 @section('content')
 
+<link href="{{ asset('/css/profile.css') }}" rel="stylesheet"> 
+
+<div>
 <div class="profile_container">
     <img class="profile_backdrop" src="{{$user['profile_background']}}" alt="">
     <img class="profile_picture" src="{{$user['profile_picture']}}" alt="">
@@ -11,7 +14,7 @@
             <h1>{{$user['name']}}</h1>
 
             @if (Auth::user()->id == $user['id'])
-                <a class='edit' href="{{$user['id']}}/edit">edit</a>
+                <a class='edit' href="/profile/{{$user['id']}}/edit">edit</a>
             @else
                 <button>Message</button>
                 <button>Follow</button>
@@ -25,6 +28,9 @@
             @if ($user->twitter)
                 <a class='linkout twitter' href=""><i class="fab fa-twitter"></i></a>
             @endif
+            @if ($user->website)
+            <a class='linkout website' href="{{$user->website}}"><i class="fas fa-link"></i></a>
+            @endif
         </div>
 
         <div class="profile_flex mid_row">
@@ -34,10 +40,7 @@
         </div>
 
         <p class="profile_flex bio">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Ipsam odio repellat in, impedit atque facilis? 
-            Reiciendis eligendi hic odit, tempora obcaecati similique, 
-            quasi architecto aliquam eaque autem facere esse provident!
+            {{$user->bio}}
         </p>
     </div>
 </div>
@@ -55,13 +58,20 @@
         <div class="content_comment">
             <div class="comment_flex">
                 <a href="/profile/{{$users[$i]->id}}">
-                    <img class="profile_picture" src="{{$users[$i]->profile_picture}}" alt="">
+                    <div class="commented_on">
+                        <img class="profile_picture" src="{{$users[$i]->profile_picture}}" alt="">
+                        <p>{{$users[$i]->name}}</p>
+                    </div>
                 </a>
                 <i class="fas fa-arrow-right arrow"></i>
                 <a class='comment_details_a' href="/post/{{$comments[$i]['post_id']}}">
                 <div class='comment_details'>
                     <img class="profile_picture" src="{{$user->profile_picture}}" alt="">
-                    <p>{{$comments[$i]['comment']}}</p>    
+                    <div class='comment_details_info'>
+                        <div class="comment_details_info_spacer"></div>
+                        <h3>{{$comments[$i]['comment']}}</p> 
+                        <p>commented on {{$comments[$i]->created_at}}</p>
+                    </div>
                 </div>
                 </a>
             </div>
@@ -69,6 +79,7 @@
         @endfor
     </div>
     
+</div>
 </div>
 
 @endsection

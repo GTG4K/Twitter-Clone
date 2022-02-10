@@ -1,0 +1,328 @@
+.side_navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 260px;
+  background: #2b2a30;
+  padding: 6px 14px;
+  transition: all 0.5s ease;
+}
+.side_navbar .logo_content .logo_content_items {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  color: #ffffff;
+}
+.side_navbar .logo_content .logo_content_items img {
+  width: 28px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.side_navbar .logo_content .logo_content_items .logo_name {
+  padding: 0 10px;
+  font-size: 20px;
+  font-weight: 400;
+}
+.side_navbar #menu_btn {
+  position: absolute;
+  color: #ffffff;
+  left: 90%;
+  top: 18px;
+  font-size: 20px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  list-style: 50px;
+  transform: translateX(-50%);
+}
+.side_navbar ul {
+  margin-top: 20px;
+}
+.side_navbar ul li {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin: 0 5px;
+  list-style: none;
+  line-height: 50px;
+  margin: 5px 0;
+}
+.side_navbar ul li .tooltip {
+  position: absolute;
+  left: 80px;
+  top: 0;
+  transform: translateY(-50%);
+  height: 35px;
+  width: 120px;
+  line-height: 35px;
+  text-align: center;
+  background: #ffffff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  transition: 0s;
+  opacity: 0;
+  pointer-events: none;
+}
+.side_navbar ul li a {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 10px;
+}
+.side_navbar ul li a i {
+  height: 50px;
+  min-width: 50px;
+  border-radius: 12px;
+  line-height: 50px;
+  text-align: center;
+  pointer-events: none;
+}
+.side_navbar ul li a:hover {
+  color: #2b2a30;
+  background: #ffffff;
+}
+.side_navbar .profile_content {
+  position: absolute;
+  color: #ffffff;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background: #26252c;
+}
+.side_navbar .profile_content .profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  height: 60px;
+  transition: all 0.2s ease;
+}
+.side_navbar .profile_content .profile .profile_details {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.side_navbar .profile_content .profile .profile_details img {
+  height: 50px;
+  width: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 12px;
+  margin-left: 14px;
+}
+.side_navbar .profile_content .profile .profile_details .profile_details_information {
+  margin-left: 10px;
+}
+.side_navbar .profile_content .profile .profile_details .profile_details_information .profile_name {
+  font-size: 15px;
+  font-weight: 400;
+  transition: all 0.2s ease;
+}
+.side_navbar .profile_content .profile i {
+  transition: all 0.2s ease;
+  margin-right: 14px;
+}
+.side_navbar .profile_content .profile:hover {
+  background: #333041a6;
+  transition: all 0.2s ease;
+}
+.side_navbar .profile_content .additional_options {
+  opacity: 0;
+  transition: all 0.2s ease;
+  position: absolute;
+  top: -50px;
+  background: #26252c;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 50px;
+  border-radius: 15px 15px 0 0;
+  display: none;
+}
+.side_navbar .profile_content .additional_options button {
+  margin-top: 10px;
+  height: 30px;
+  width: 100%;
+  background: #26252c;
+  border: none;
+  color: #ffffff;
+  transition: all 0.2s ease;
+}
+.side_navbar .profile_content .additional_options button:hover {
+  background: #333041a6;
+  transition: all 0.2s ease;
+}
+.side_navbar .profile_content.active .additional_options {
+  opacity: 1;
+  transition: all 0.2s ease;
+  display: block;
+}
+
+.side_navbar.active {
+  width: 80px;
+  transition: all 0.5s ease;
+}
+.side_navbar.active .logo_content .logo_content_items {
+  opacity: 0;
+}
+.side_navbar.active #menu_btn {
+  left: 50%;
+}
+.side_navbar.active ul li {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin: 0 5px;
+  list-style: none;
+  line-height: 50px;
+  margin: 5px 0;
+}
+.side_navbar.active ul li a span {
+  transition: all 0.1s ease;
+  opacity: 0;
+}
+.side_navbar.active ul li:hover .tooltip {
+  transition: all 0.2s ease;
+  top: 50%;
+  opacity: 1;
+}
+.side_navbar.active .profile_content {
+  transition: all 0.2s ease;
+}
+.side_navbar.active .profile_content .profile .profile_details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.side_navbar.active .profile_content .profile .profile_details img {
+  height: 50px;
+  width: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 12px;
+}
+.side_navbar.active .profile_content .profile .profile_details .profile_details_information {
+  margin-left: 10px;
+}
+.side_navbar.active .profile_content .profile .profile_details .profile_details_information .profile_name {
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+.side_navbar.active .profile_content .profile i {
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+@media screen and (max-width: 600px) {
+  .side_navbar.active {
+    width: 80px;
+    transition: all 0.5s ease;
+  }
+  .side_navbar.active .logo_content .logo_content_items {
+    opacity: 0;
+  }
+  .side_navbar.active #menu_btn {
+    left: 50%;
+  }
+  .side_navbar.active ul li {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin: 0 5px;
+    list-style: none;
+    line-height: 50px;
+    margin: 5px 0;
+  }
+  .side_navbar.active ul li a span {
+    transition: all 0.1s ease;
+    opacity: 0;
+  }
+  .side_navbar.active ul li:hover .tooltip {
+    transition: all 0.2s ease;
+    top: 50%;
+    opacity: 1;
+  }
+  .side_navbar.active .profile_content {
+    transition: all 0.2s ease;
+  }
+  .side_navbar.active .profile_content .profile .profile_details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .side_navbar.active .profile_content .profile .profile_details img {
+    height: 50px;
+    width: 50px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    border-radius: 12px;
+  }
+  .side_navbar.active .profile_content .profile .profile_details .profile_details_information {
+    margin-left: 10px;
+  }
+  .side_navbar.active .profile_content .profile .profile_details .profile_details_information .profile_name {
+    opacity: 0;
+    transition: all 0.2s ease;
+  }
+  .side_navbar.active .profile_content .profile i {
+    opacity: 0;
+    transition: all 0.2s ease;
+  }
+
+  .side_navbar {
+    width: 80px;
+    transition: all 0.5s ease;
+  }
+  .side_navbar .logo_content .logo_content_items {
+    opacity: 0;
+  }
+  .side_navbar #menu_btn {
+    left: 50%;
+  }
+  .side_navbar ul li {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin: 0 5px;
+    list-style: none;
+    line-height: 50px;
+    margin: 5px 0;
+  }
+  .side_navbar ul li a span {
+    transition: all 0.1s ease;
+    opacity: 0;
+  }
+  .side_navbar ul li:hover .tooltip {
+    transition: all 0.2s ease;
+    top: 50%;
+    opacity: 1;
+  }
+  .side_navbar .profile_content {
+    transition: all 0.2s ease;
+  }
+  .side_navbar .profile_content .profile .profile_details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .side_navbar .profile_content .profile .profile_details img {
+    height: 50px;
+    width: 50px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    border-radius: 12px;
+  }
+  .side_navbar .profile_content .profile .profile_details .profile_details_information {
+    margin-left: 10px;
+  }
+  .side_navbar .profile_content .profile .profile_details .profile_details_information .profile_name {
+    opacity: 0;
+    transition: all 0.2s ease;
+  }
+  .side_navbar .profile_content .profile i {
+    opacity: 0;
+    transition: all 0.2s ease;
+  }
+}

@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Comment;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Database\Seeders\UserSeeder;
+
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
-use Database\Seeders\UserSeeder;
+use App\Models\Favorite;
+use App\Models\Like;
+use App\Models\Repost;
 
 class HomeController extends Controller
 {
@@ -29,41 +34,151 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::orderby('created_at', 'desc')->get();
-        $users = User::all();
+        $post_comments_count = [];
 
-        $popular_posts = Post::orderby('likes', 'desc')->take(5)->get();
+        $post_favorites = [];
+        $post_likes = [];
+        $post_reposts = [];
 
-        return view('home', ['posts'=>$posts, 'popular_posts'=>$popular_posts, 'users'=> $users]);
-    }
+        $post_favorites_count = [];
+        $post_likes_count = [];
+        $post_reposts_count = [];
 
-    public function view_profile($id){
+        $post_authors = [];
+        $time_stamps = [];
 
-        $user = User::find($id);
-        $posts = Post::where('user_id',$id)->orderby('created_at', 'desc')->get();
-
-        return view('profile/profile', ['user'=>$user, 'posts'=>$posts]);
-    }
-
-    public function view_profile_comments($id){
-        $user = User::find($id);
-        $posts = Post::where('user_id',$id)->get();
-        $comments = Comment::where('user_id',$id)->get();
-
-        $posts_list = [];
-        $op_list=[];
-
-        for($i = 0; $i < $comments->count(); $i++){
+        for($i = 0; $i < $posts->count(); $i++){
             
-            $post = Post::find($comments[$i]->post_id);
-            array_push($posts_list, $post);
+            //getting usernames
+            $post = Post::find($posts[$i]->id);
+            $user = User::find($posts[$i]->user_id);
+            array_push($post_authors, $user);
 
+            //getting comment
+            $comments = Comment::where('post_id',$post->id)->get();
+            array_push($post_comments_count, $comments->count());
+            
+
+            // getting time
+            $created_at = $post->created_at;
+            $split_created_at = explode(" ", $created_at);
+            $day = $split_created_at[0];
+            $time = $split_created_at[1];
+            $time_stamp = [];
+            $year_split = explode("-", $day,2);
+            $month_split = explode('-',$year_split[1]);
+            //getting month posted
+            switch ($month_split[0]) {
+                case '01':
+                    $month = 'Jan ';
+                    break;
+                case '02':
+                    $month = 'Feb ';
+                    break;
+                case '03':
+                    $month = 'Mar ';
+                    break;
+                case '04':
+                    $month = 'Apr ';
+                    break;
+                case '05':
+                    $month = 'May ';
+                    break;
+                case '06':
+                    $month = 'Jun ';
+                    break;
+                case '07':
+                    $month = 'Jul ';
+                    break;
+                case '08':
+                    $month = 'Aug ';
+                    break;
+                case '09':
+                    $month = 'Sep ';
+                    break;
+                case '10':
+                    $month = 'Oct ';
+                    break;
+                case '11':
+                    $month = 'Nov ';
+                    break;
+                case '12':
+                    $month = 'Dec ';
+                    break;
+            }
+            $day_split = explode('0', $month_split[1]);
+            array_push($time_stamp, $month, $day_split[1],  $year_split[0]);
+            array_push($time_stamps, $time_stamp);     
+
+
+             //make Like item in the database
+             if(Like::Where('user_id', Auth::user()->id)->Where('post_id', $posts[$i]->id)->count() > 0){
+                //profile follow database items already exists
+            }
+            else{
+                $like = new Like();
+                $like -> fill([
+                    'user_id' => Auth::user()->id,
+                    'post_id' => $posts[$i]->id
+                ])->save();
+            }
+
+            $likes = Like::Where('post_id', $posts[$i]->id)->get();
+            array_push($post_likes, $likes);
+
+            //make Favorite item in the database
+            if(Favorite::Where('user_id', Auth::user()->id)->Where('post_id', $posts[$i]->id)->count() > 0){
+                //profile follow database items already exists
+            }
+            else{
+                $favorite = new Favorite();
+                $favorite -> fill([
+                    'user_id' => Auth::user()->id,
+                    'post_id' => $posts[$i]->id
+                ])->save();
+            }
+
+            $favorites = Favorite::Where('post_id', $posts[$i]->id)->get();
+            array_push($post_favorites, $favorites);
+
+            //make Repost item in the database
+            if(Repost::Where('user_id', Auth::user()->id)->Where('post_id', $posts[$i]->id)->count() > 0){
+                //profile follow database items already exists
+            }
+            else{
+                $repost = new Repost();
+                $repost -> fill([
+                    'user_id' => Auth::user()->id,
+                    'post_id' => $posts[$i]->id
+                ])->save();
+            }
+
+            $repost = Repost::Where('post_id', $posts[$i]->id)->get();
+            array_push($post_reposts, $repost);
+
+
+            //getting int amounts of LIKES/FAVORITES/REPOSTS
+            $likes = Like::Where('post_id', $posts[$i]->id)->Where('liked', 1)->count();
+            array_push($post_likes_count, $likes);
+
+            $favorites = Favorite::Where('post_id', $posts[$i]->id)->Where('favorited', 1)->count();
+            array_push($post_favorites_count, $favorites);
+
+            $reposts = Repost::Where('post_id', $posts[$i]->id)->Where('reposted', 1)->count();
+            array_push($post_reposts_count, $reposts);
         }
-        for($i = 0; $i < sizeof($posts_list); $i++){
 
-            $user_list = User::find($posts_list[$i]->user_id);
-            array_push($op_list, $user_list);
-        }
-
-        return view('profile/comments', ['user'=>$user, 'posts_list' => $posts_list, 'users'=>$op_list, 'posts'=>$posts, 'comments'=>$comments]);
+        return view('home', ['posts'=>$posts, 
+        'post_authors'=> $post_authors, 
+        'timestamps'=> $time_stamps, 
+        'post_comments_count' =>$post_comments_count, 
+        'post_likes' => $post_likes, 
+        'post_favorites' => $post_favorites,
+        'post_reposts' => $post_reposts,
+        'post_favorites_count' => $post_favorites_count,
+        'post_likes_count' => $post_likes_count,
+        'post_reposts_count' => $post_reposts_count
+    ]);
     }
+
 }

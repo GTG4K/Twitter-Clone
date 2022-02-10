@@ -1,17 +1,13 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-    "/css/search.css": "/css/search.css",
-    "/css/header.css": "/css/header.css",
     "/css/main.css": "/css/main.css",
+    "/css/app.css": "/css/app.css",
+    "/css/home.css": "/css/home.css",
+    "/css/navbar.css": "/css/navbar.css",
     "/css/_variables.css": "/css/_variables.css",
     "/css/edit_profile.css": "/css/edit_profile.css",
-    "/css/viewPost.css": "/css/viewPost.css",
-    "/css/dropdown.css": "/css/dropdown.css",
     "/css/profile.css": "/css/profile.css",
-    "/css/new_post.css": "/css/new_post.css",
-    "/css/sidebar.css": "/css/sidebar.css",
     "/css/container.css": "/css/container.css",
     "/css/login_form.css": "/css/login_form.css",
-    "/css/post.css": "/css/post.css"
+    "/css/view_post.css": "/css/view_post.css"
 }
