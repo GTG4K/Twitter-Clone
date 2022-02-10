@@ -38,7 +38,6 @@
         </div>
         
         <div class="profile_additional_links">
-            <div>
                 @if (Auth::user()->id == $user->id)
                     <a class='edit' href="/profile/{{$user->id}}/edit"><i class="fas fa-cog"></i></a>
                 @else
@@ -52,7 +51,7 @@
                         <input type="hidden" value="{{$follow->id}}" name="follow_id">
                     </form>
 
-            @endif
+                @endif
                 @if($user->discord or $user->instagram or $user->twitter or $user->website)
                 
                     <div class='separator'>
@@ -73,10 +72,6 @@
                 @if ($user->website)
                     <a class='linkout website' href="{{$user->website}}"><i class="fas fa-link"></i></a>
                 @endif
-            </div>
-            <div>
-
-            </div>
         </div>
 
         <div class="content_box">
