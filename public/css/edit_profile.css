@@ -97,6 +97,7 @@
   font-size: 12px;
   padding: 0 10px;
   text-align: left;
+  color: white;
 }
 .edit_profile_container .edit_profile_item_input .edit_profile_item_input_form .edit_profile_item_input_form_detais textarea {
   width: 60%;
@@ -109,6 +110,7 @@
   padding: 0 10px;
   text-align: left;
   height: 100px;
+  color: white;
 }
 .edit_profile_container .edit_profile_item_input .edit_profile_item_input_form .edit_profile_item_input_form_detais button {
   width: 100%;

@@ -1,5 +1,6 @@
 .home_container{
     width: 100%;
+    display: flex;
     .home_main{
         width: 50%;
         transition: all 0.2s ease;
@@ -31,7 +32,7 @@
                     background: none;
                     border:none;
                     height: 40px;
-                    width: 80%;
+                    width: 70%;
                     transition: 0.2s;
                     border-radius: 12px;
                     padding-left: 5px;
@@ -84,6 +85,7 @@
                     border:none;
                     border-radius: 6px;
                     width: 60%;
+                    min-width: 80px;
                     height: 30px;
         
                     transition: 0.2s;
@@ -411,15 +413,133 @@
             }
 
         }
-
         .post:hover{
             background: #37363d73;
             transition: 0.2s;
         }
     }
+    .home_side{
+        width: 20%;
+        transition: all 0.5s ease;
+        position: fixed;
+        height: 99vh;
+        overflow-y: scroll;
+        left: calc(50% + 150px);
+
+        &.active{
+            left: calc(50% + 60px);  
+        }
+
+        .side_element{
+            padding-top: 10px;
+            border-radius: 12px;
+            transition: 0.2s;
+            background: #2b2a3073;
+
+            .user{
+                display: flex;
+                align-items: center;
+                padding: 10px 10px;
+                transition: 0.2s ease; 
+                border-left:solid 3px rgba(255, 255, 255, 0);
+
+                img{
+                    object-fit: cover;
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 50%;
+                }
+
+                .user_details{
+                    padding: 0 15px;
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                }
+
+                h2{
+                    color: white;
+                    font-weight: 600;
+                    font-size: 15px;
+                }
+                p{
+                    color: rgb(143, 143, 143);
+                    font-size: 13px;
+                    padding-top: 1px;
+                    font-weight: 400;
+                }
+                &:hover{
+                    border-left:solid 3px white;
+                    background-color: #42404b1e;
+                    transition: 0.2s ease; 
+                }
+            }
+
+            .more_button{
+                width: 100%;
+                height: 50px;
+                text-align: center;
+                a{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    background-color: #3231388a;
+                    height: 50px;
+                    border-radius: 0 0 12px 12px;
+                    transition: 0.2s ease;
+
+                    &:hover{
+                        background-color: #42404bb7;
+                        transition: 0.2s ease; 
+                    }
+                }
+            }
+        }
+
+        .side_element_title{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            color: white;
+            i{
+                padding: 0 10px;
+                font-size: 16px;
+            }
+            h2{
+                font-size: 16px;
+                font-weight: 600;
+            }
+        }
+
+        footer{
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            
+            p{
+                width: 85%;
+                color: rgb(143, 143, 143);
+                font-size: 13px;
+                padding-top: 1px;
+                font-weight: 400;
+            }
+        }
+    }
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1400px) {
+    .home_container{
+        .home_side{
+            width: 35%;
+        }
+    } 
+    }
+
+@media screen and (max-width: 1150px) {
 .home_container{
     width: 95%;
     .home_main{

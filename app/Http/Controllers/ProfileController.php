@@ -11,7 +11,7 @@ use App\Models\Follow;
 
 use App\Models\Like;
 use App\Models\Favorite;
-use App\Models\repost;
+use App\Models\Repost;
 
 
 use phpDocumentor\Reflection\Types\Null_;
@@ -142,7 +142,7 @@ class ProfileController extends Controller
                 ])->save();
             }
             
-            $likes = Like::Where('post_id', $posts[$i]->id)->get();
+            $likes = Like::Where('post_id', $posts[$i]->id)->where('user_id', Auth::user()->id)->get();
             array_push($post_likes, $likes);
             
             //make Favorite item in the database
@@ -157,7 +157,7 @@ class ProfileController extends Controller
                 ])->save();
             }
             
-            $favorites = Favorite::Where('post_id', $posts[$i]->id)->get();
+            $favorites = Favorite::Where('post_id', $posts[$i]->id)->where('user_id', Auth::user()->id)->get();
             array_push($post_favorites, $favorites);
             
             //make Repost item in the database
@@ -172,7 +172,7 @@ class ProfileController extends Controller
                 ])->save();
             }
             
-            $repost = Repost::Where('post_id', $posts[$i]->id)->get();
+            $repost = Repost::Where('post_id', $posts[$i]->id)->where('user_id', Auth::user()->id)->get();
             array_push($post_reposts, $repost);
             
             

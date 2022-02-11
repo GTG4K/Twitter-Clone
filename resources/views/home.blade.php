@@ -93,7 +93,7 @@
                     </form>
                 </div>
 
-                @if($post_reposts[$i][0]->reposted == 0)
+                @if($post_reposts[$i][0]->reposted==0)
                 <div class="post_stats_item repost">
                     <form method='POST' action="/repost_post">
                         @csrf
@@ -201,6 +201,33 @@
 
     <div class="home_side">
 
+        {{--users side element--}}
+        <div class="side_element">
+            <div class='side_element_title'>
+                <i class="fa fa-users"></i>
+                <h2> Users </h2>
+            </div>
+            @foreach ($users as $user)
+            <a href="/profile/{{$user->id}}">
+                <div class="user">
+                    <img src="{{$user->profile_picture}}" alt="">
+                    <div class="user_details">
+                        <h2>{{$user->name}}</h2>
+                        <p>{{$user->bio}}</p>
+                    </div>
+                </div>
+            </a>
+            @endforeach
+            <div class="more_button">
+                <a href="#">
+                    <p>See all</p>
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <p>საიტი თუ უბერავს და Cashe-ის წაშლა არ შველის შეგიქლიათ თარხნას შეხვდეთ ბიბლიოთეკაში</p>
+        </footer>
     </div>
 </div>
 

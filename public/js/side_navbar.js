@@ -3,12 +3,13 @@ let logo = document.querySelector('#logo')
 let side_navbar = document.querySelector('.side_navbar')
 let container = document.querySelector('.container')
 let profile = document.querySelector('.profile_content')
-let header = document.querySelector('#header')
+let home_side = document.querySelector('.home_side')
+
 
 menu_btn.onclick = function() {
     side_navbar.classList.toggle('active')
     container.classList.toggle('active')
-    header.classList.toggle('active')
+    home_side.classList.toggle('active')
 }
 
 profile.onclick = function(){

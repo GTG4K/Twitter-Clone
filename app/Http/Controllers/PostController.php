@@ -165,7 +165,7 @@ class PostController extends Controller
                 ])->save();
             }
             
-            $likes = Like::Where('post_id', $post->id)->get();
+            $likes = Like::Where('post_id', $post->id)->where('user_id', Auth::user()->id)->get();
             array_push($post_likes, $likes);
             
             //make Favorite item in the database
@@ -180,7 +180,7 @@ class PostController extends Controller
                 ])->save();
             }
             
-            $favorites = Favorite::Where('post_id', $post->id)->get();
+            $favorites = Favorite::Where('post_id', $post->id)->where('user_id', Auth::user()->id)->get();
             array_push($post_favorites, $favorites);
             
             //make Repost item in the database
@@ -195,7 +195,7 @@ class PostController extends Controller
                 ])->save();
             }
             
-            $repost = Repost::Where('post_id', $post->id)->get();
+            $repost = Repost::Where('post_id', $post->id)->where('user_id', Auth::user()->id)->get();
             array_push($post_reposts, $repost);
             
             
@@ -241,15 +241,17 @@ class PostController extends Controller
 
         if(isset($request->image)){
             $image = $request->file('image');
+             //any other image format
+
             $newImageName = time() . '-' . $user['name'] . '.' . $image->extension();
             $image->move('images/posts', $newImageName);
-
+    
             $post -> fill([
                 'image' => '\images\posts\\'.$newImageName,
             ])->save();
+            
         }
-
-                return back();
+        return back();
     }
 
     public function like_post(Request $request){

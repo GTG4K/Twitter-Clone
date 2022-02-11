@@ -9,7 +9,7 @@ class Repost extends Model
 {
     use HasFactory;
     public $fillable = [
-        'liked',
+        'reposted',
         'user_id',
         'post_id'
     ];

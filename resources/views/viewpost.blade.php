@@ -210,7 +210,7 @@
     </div>
 
     <div class="view_post_side">
-
+        
     </div>
 
 </div>

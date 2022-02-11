@@ -34,6 +34,8 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::orderby('created_at', 'desc')->get();
+        $users = User::all()->take(5);
+
         $post_comments_count = [];
 
         $post_favorites = [];
@@ -123,7 +125,7 @@ class HomeController extends Controller
                 ])->save();
             }
 
-            $likes = Like::Where('post_id', $posts[$i]->id)->get();
+            $likes = Like::Where('post_id', $posts[$i]->id)->where('user_id', Auth::user()->id)->get();
             array_push($post_likes, $likes);
 
             //make Favorite item in the database
@@ -138,7 +140,7 @@ class HomeController extends Controller
                 ])->save();
             }
 
-            $favorites = Favorite::Where('post_id', $posts[$i]->id)->get();
+            $favorites = Favorite::Where('post_id', $posts[$i]->id)->where('user_id', Auth::user()->id)->get();
             array_push($post_favorites, $favorites);
 
             //make Repost item in the database
@@ -153,9 +155,8 @@ class HomeController extends Controller
                 ])->save();
             }
 
-            $repost = Repost::Where('post_id', $posts[$i]->id)->get();
+            $repost = Repost::Where('post_id', $posts[$i]->id)->where('user_id', Auth::user()->id)->get();
             array_push($post_reposts, $repost);
-
 
             //getting int amounts of LIKES/FAVORITES/REPOSTS
             $likes = Like::Where('post_id', $posts[$i]->id)->Where('liked', 1)->count();
@@ -178,7 +179,9 @@ class HomeController extends Controller
         'post_reposts' => $post_reposts,
         'post_favorites_count' => $post_favorites_count,
         'post_likes_count' => $post_likes_count,
-        'post_reposts_count' => $post_reposts_count
+        'post_reposts_count' => $post_reposts_count,
+        'users' => $users
+
     ]);
     }
 
