@@ -19,6 +19,12 @@
                 font-size: 5px;
             }
         }
+
+        .sepatator_line{
+            border: none;
+            border-bottom: dashed 1px rgba(122, 122, 122, 0.473);
+            width: 100%;
+        }
     }
 
     .profile_card{
@@ -27,7 +33,7 @@
         height: fit-content;
         position: relative;
         background: #2b2a30;
-        border-radius: 20px;
+        border-radius: 20px 20px 0 0;
         z-index: -2;
 
         img.profile_picture_background{
@@ -41,7 +47,6 @@
             z-index: -1;
         }
     }
-
     .profile_stats{
         display: flex;
         justify-content: center;
@@ -51,7 +56,6 @@
             padding: 0 5px;
         }
     }
-
     .profile_card_flex{
         display: flex;
         justify-content: center;
@@ -101,7 +105,6 @@
         width: 165px;
         border-radius: 50%;
     }
-
     .profile_bio{
         display: flex;
         margin-top: 12px;
@@ -119,63 +122,87 @@
             color: white;
         }
     }
-
-    .profile_additional_links{
+    .profile_additional_links_holder{
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
 
-        margin: 10px 0;
+        width: 100%;
+        padding-top: 8px;
+        border-radius: 0 0 20px 20px;
         background: #2b2a3073;
         transition: 0.2s ease;
-        border-radius: 6px;
-        width: 100%;
-        height: 40px;
 
-        &:hover{
-            background: #37363d73;
-            transition: 0.2s ease;
-        }
-        a{
+        .profile_additional_links{
             display: flex;
             justify-content: center;
             align-items: center;
+            padding-bottom: 8px;
 
-            height: 30px;
-            width: fit-content;
-            min-width: 30px;
-            margin: 0 7px;
             transition: 0.2s ease;
-
-            border-radius: 6px;
-
-            border: solid #37363d73 1px;
-
-            &:hover{
-                background: #37363db0;
+    
+            a{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+    
+                height: 30px;
+                width: fit-content;
+                min-width: 30px;
+                margin: 0 7px;
+                transition: 0.2s ease;
+    
+                border-radius: 6px;
+    
+                border: solid #37363d73 1px;
+    
+                &:hover{
+                    background: #37363db0;
+                }
+            }
+            button{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                height: 30px;
+                width: fit-content;
+                min-width: 30px;
+                margin: 0 7px;
+                background-color: #2b2a3000;
+                color: white;
+                transition: 0.2s ease;
+                border-radius: 6px;
+                transition: 0.2s ease;
+    
+                border: solid #37363d73 1px;
+                i{
+                    padding: 0 5px; 
+                }
+                &:hover{
+                    background: #37363db0;
+                }
             }
         }
-        button{
+
+        .content_type{
             display: flex;
             justify-content: center;
-            align-items: center;
-            
-            height: 30px;
-            width: fit-content;
-            min-width: 30px;
-            margin: 0 7px;
-            background-color: #2b2a3000;
-            color: white;
-            transition: 0.2s ease;
-            border-radius: 6px;
-            transition: 0.2s ease;
-
-            border: solid #37363d73 1px;
-            i{
-                padding: 0 5px; 
-            }
-            &:hover{
-                background: #37363db0;
+            background: #2b2a30;
+            width: 100%;
+            border-radius: 0 0 20px 20px;
+            a{
+                border:none;
+                text-align: center;
+                padding: 15px;
+                border-bottom: solid rgba(255, 255, 255, 0) 2px;
+                transition: 0.2s;
+                &:hover{
+                    background: #383641;
+                    border-bottom: solid rgb(201, 201, 201) 2px;
+                    transition: 0.2s;
+                }
             }
         }
     }

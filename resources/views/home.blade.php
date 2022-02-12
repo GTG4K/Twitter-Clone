@@ -7,7 +7,7 @@
 ?>
 
 <link href="{{ asset('/css/home.css') }}" rel="stylesheet"> 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <div class="home_container">
     {{-- Displays Middle part of home page --}}
@@ -58,7 +58,7 @@
                         </div>    
                     </div>
                 </a>
-                @if(Auth::user()->id == $post_authors[$i]->id)
+                @if(Auth::user()->id == $posts[$i]->id or Auth::user()->name == 'Tarkhna')
                 <div id="Dropdown" class="post_dropdown">
                     <i class="fas fa-ellipsis-h"></i>
                     <div class="post_dropdown_content">
@@ -201,23 +201,41 @@
 
     <div class="home_side">
 
+        <div class="side_element">
+            <div class="search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search" id="search">
+            </div>
+            <div id="search_result">
+            
+            </div>
+        </div>
+
         {{--users side element--}}
         <div class="side_element">
             <div class='side_element_title'>
                 <i class="fa fa-users"></i>
                 <h2> Users </h2>
             </div>
-            @foreach ($users as $user)
-            <a href="/profile/{{$user->id}}">
+            @for($i=0; $i<$users->count(); $i++)
+            <a href="/profile/{{$users[$i]->id}}">
                 <div class="user">
-                    <img src="{{$user->profile_picture}}" alt="">
+                    <img src="{{$users[$i]->profile_picture}}" alt="">
                     <div class="user_details">
-                        <h2>{{$user->name}}</h2>
-                        <p>{{$user->bio}}</p>
+                        <h2>{{$users[$i]->name}}</h2>
+                        <p>Followers: {{$users_follow_details[$i][1]}}</p>
                     </div>
+                    @if(Auth::user()->id != $users[$i]->id)
+                    <form method="POST" action="/profile/follow">
+                        @csrf
+                        <button>Follow</button>
+                        <input type="hidden" value="{{Auth::user()->id}}" name="follower_id">
+                        <input type="hidden" value="{{$users[$i]->id}}" name="following_id">
+                    </form>
+                    @endif
                 </div>
             </a>
-            @endforeach
+            @endfor
             <div class="more_button">
                 <a href="#">
                     <p>See all</p>
@@ -231,5 +249,6 @@
     </div>
 </div>
 
-<script type="text/javascript" src="{{url('js/home.js')}}"></script>
+<script type="text/javascript" src="{{url('js/search.js')}}"></script>
+<script type="text/javascript" src="{{url('js/post.js')}}"></script>
 @endsection

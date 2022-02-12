@@ -208,16 +208,16 @@ class ProfileController extends Controller
 
     public function follow_user(Request $request){
         
-        $follow = Follow::find($request->follow_id)->first();
+        $follow = Follow::Where('follower_id', Auth::user()->id)->Where('following_id', $request->following_id)->first();
 
         //Follow user if not yet followed
         if($follow->followed == 0){
-            Follow::find($request->follow_id)->update(['followed' => 1]);
+            Follow::Where('follower_id', Auth::user()->id)->Where('following_id', $request->following_id)->update(['followed' => 1]);
         }
 
         //Unfollow user if already followed
         if($follow->followed == 1){
-            Follow::find($request->follow_id)->update(['followed' => 0]);
+            Follow::Where('follower_id', Auth::user()->id)->Where('following_id', $request->following_id)->update(['followed' => 0]);
         }
 
         return back();

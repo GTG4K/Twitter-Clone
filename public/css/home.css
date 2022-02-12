@@ -402,10 +402,41 @@
   left: calc(50% + 60px);
 }
 .home_container .home_side .side_element {
-  padding-top: 10px;
+  width: 100%;
   border-radius: 12px;
   transition: 0.2s;
   background: #2b2a3073;
+  margin-bottom: 10px;
+}
+.home_container .home_side .side_element .search {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.home_container .home_side .side_element .search input {
+  width: 90%;
+  height: 100%;
+  background-color: #26252c00;
+  border: none;
+  padding-left: 10px;
+  border-radius: 12px;
+  color: white;
+}
+.home_container .home_side .side_element .search input:hover {
+  color: white;
+  background: #2b2a30af;
+}
+.home_container .home_side .side_element .search input:focus {
+  background: #2b2a3073;
+  color: white;
+  outline: none;
+}
+.home_container .home_side .side_element .search i {
+  margin-left: 15px;
+  width: 10px;
+  color: white;
+  font-size: 15px;
 }
 .home_container .home_side .side_element .user {
   display: flex;
@@ -437,8 +468,39 @@
   font-size: 13px;
   padding-top: 1px;
   font-weight: 400;
+  height: 18px;
+  overflow: hidden;
 }
 .home_container .home_side .side_element .user:hover {
+  border-left: solid 3px white;
+  background-color: #42404b1e;
+  transition: 0.2s ease;
+}
+.home_container .home_side .side_element .user button {
+  justify-content: space-evenly;
+  background: #534892;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  width: 90px;
+  height: 30px;
+  position: relative;
+  z-index: 3;
+  transition: 0.2s;
+}
+.home_container .home_side .side_element .user button:hover {
+  background: #6b5dbd;
+  transition: 0.2s;
+}
+.home_container .home_side .side_element .search_result_container {
+  padding: 10px 0;
+}
+.home_container .home_side .side_element .search_result_container > h1 {
+  text-align: center;
+  padding: 10px 5px;
+  border-left: solid 3px rgba(255, 255, 255, 0);
+}
+.home_container .home_side .side_element .search_result_container > h1:hover {
   border-left: solid 3px white;
   background-color: #42404b1e;
   transition: 0.2s ease;
@@ -466,8 +528,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 10px;
   border-radius: 12px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   color: white;
 }
 .home_container .home_side .side_element_title i {

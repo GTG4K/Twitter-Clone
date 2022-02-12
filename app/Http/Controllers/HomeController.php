@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Database\Seeders\UserSeeder;
 
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Favorite;
+use App\Models\Follow;
 use App\Models\Like;
 use App\Models\Repost;
 
@@ -34,7 +34,38 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::orderby('created_at', 'desc')->get();
+
         $users = User::all()->take(5);
+        $users_follow_details=[];
+
+        for($i = 0; $i < $users->count(); $i++){
+            $users_follow=[];
+
+            if(Auth::user()->id == $users[$i]->id){
+                //profile belongs to the authenticated so skip
+                $followers = Follow::Where('following_id', $users[$i]->id)->Where('followed', 1)->count();
+            }
+            else{
+                if(Follow::Where('follower_id', Auth::user()->id)->Where('following_id', $users[$i]->id)->count() > 0){
+                    //profile follow database items already exists
+                    $followers = Follow::Where('following_id', $users[$i]->id)->Where('followed', 1)->count();
+                }
+                else{
+                    $follow = new Follow();
+                    $follow -> fill([
+                        'following_id' => $users[$i]->id,
+                        'follower_id' => Auth::user()->id
+                    ])->save();
+                    $followers = Follow::Where('following_id', $users[$i]->id)->Where('followed', 1)->count();
+                }
+            }
+
+            $follow = Follow::Where('follower_id', Auth::user()->id)->Where('following_id', $users[$i]->id)->first();
+            array_push($users_follow, $follow, $followers);
+            array_push($users_follow_details, $users_follow);
+        }
+        // dd($users_follow_details);
+
 
         $post_comments_count = [];
 
@@ -180,6 +211,7 @@ class HomeController extends Controller
         'post_favorites_count' => $post_favorites_count,
         'post_likes_count' => $post_likes_count,
         'post_reposts_count' => $post_reposts_count,
+        'users_follow_details' => $users_follow_details,
         'users' => $users
 
     ]);

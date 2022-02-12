@@ -36,8 +36,12 @@
             </div>
 
         </div>
-        
-        <div class="profile_additional_links">
+
+        <div class="sepatator_line"></div>
+
+        <div class="profile_additional_links_holder">
+
+            <div class="profile_additional_links">
                 @if (Auth::user()->id == $user->id)
                     <a class='edit' href="/profile/{{$user->id}}/edit"><i class="fas fa-cog"></i></a>
                 @else
@@ -72,22 +76,26 @@
                 @if ($user->website)
                     <a class='linkout website' href="{{$user->website}}"><i class="fas fa-link"></i></a>
                 @endif
-        </div>
+            </div>
 
-        <div class="content_box">
-            {{-- <div class="content_type">
+            <div class="sepatator_line"></div>
+
+            <div class="content_type">
                 <a href="/profile/{{$user->id}}">Posts</a>
                 <a href="/profile/{{$user->id}}/comments">Comments</a>
                 <a href="">Saved</a>
                 <a href="">Liked</a>
-            </div> --}}
+            </div>
 
+        </div>
 
-        {{-- User posts --}}
-        @for($i=0; $i < $posts->count(); $i++)
-        <div class="post">
+        <div class="content_box">
+
+            {{-- User posts --}}
+            @for($i=0; $i < $posts->count(); $i++)
+            <div class="post">
             {{-- profile picture/ author name/ upload date/ additional info button --}}
-            <div class="post_header">
+                <div class="post_header">
                 <a href="/profile/{{$user->id}}">
                     <div class="post_header_details">
                         <img src="{{$user->profile_picture}}" alt="">
@@ -103,7 +111,7 @@
                         </div>    
                     </div>
                 </a>
-                @if(Auth::user()->id == $posts[$i]->id)
+                @if(Auth::user()->id == $posts[$i]->id or Auth::user()->name == 'Tarkhna')
                 <div id="Dropdown" class="post_dropdown">
                     <i class="fas fa-ellipsis-h"></i>
                     <div class="post_dropdown_content">
@@ -120,17 +128,17 @@
                     </div>
                 </div>
                 @endif
-            </div>
+                </div>
 
-            <div class="post_body">
+                <div class="post_body">
                 @if($posts[$i]->image != NULL)
                 <img src="{{$posts[$i]->image}}" alt="">
                 @endif
-            </div>
+                </div>
 
-            <div class="post_spacing"></div>
+                {{-- <div class="post_spacing"></div> --}}
 
-            <div class="post_stats">
+                <div class="post_stats">
                 <div class="post_stats_item">
                     <form action="/post/{{$posts[$i]->id}}">
                         <button><i class="far fa-comment-alt"></i></button>
@@ -209,11 +217,11 @@
                         <button><i class="fas fa-coins"></i></button>
                     </form>
                 </div>
-            </div>
+                </div>
 
-            <div class="post_spacing"></div>
+                {{-- <div class="post_spacing"></div> --}}
 
-            <form autocomplete="off" method='POST' action="/new_comment" enctype="multipart/form-data">
+            {{-- <form autocomplete="off" method='POST' action="/new_comment" enctype="multipart/form-data">
                 @csrf
                 <div class="post_add_comment">
                     <div class="post_add_comment_left">
@@ -238,9 +246,9 @@
                     <input type="hidden" value="{{Auth::user()->id}}" name="user_id">
                     <input type="hidden" value="{{$posts[$i]->id}}" name="post_id">
                 </div>
-            </form>
-        </div>
-        @endfor
+            </form> --}}
+            </div>
+            @endfor
         </div>
     </div>
 

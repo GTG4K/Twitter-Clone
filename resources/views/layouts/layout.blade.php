@@ -125,3 +125,4 @@
 
 {{-- javascript --}}
 <script type="text/javascript" src="{{url('js/side_navbar.js')}}"></script>
+

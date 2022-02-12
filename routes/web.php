@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\SearchController;
 use Symfony\Component\HttpKernel\Profiler\Profile;
 
 /*
@@ -50,3 +51,7 @@ Route::post('/repost_post',[PostController::class,'repost_post']);
 //comments
 Route::post('/new_comment', [CommentController::class, 'new_comment']);
 Route::post('/delete_comment',[CommentController::class,'delete_comment']);
+
+//search-ajax
+Route::get('search_result', [SearchController::class, 'search_result']);
+
