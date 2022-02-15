@@ -228,7 +228,11 @@
                     @if(Auth::user()->id != $users[$i]->id)
                     <form method="POST" action="/profile/follow">
                         @csrf
+                        @if($users_follow_details[$i][1]==0)
                         <button>Follow</button>
+                        @elseif($users_follow_details[$i][1]==1)
+                        <button class=unfollow>Following</button>
+                        @endif
                         <input type="hidden" value="{{Auth::user()->id}}" name="follower_id">
                         <input type="hidden" value="{{$users[$i]->id}}" name="following_id">
                     </form>
@@ -237,7 +241,7 @@
             </a>
             @endfor
             <div class="more_button">
-                <a href="#">
+                <a href="users">
                     <p>See all</p>
                 </a>
             </div>

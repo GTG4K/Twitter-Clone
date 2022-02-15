@@ -26,12 +26,16 @@ Route::get('/', function () {return Redirect('login');});
 
 Auth::routes();
 
+//home
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+//Users - sidebar-> Full page
+Route::get('/users', [HomeController::class, 'view_users']);
 
 //profile
 Route::get('/profile/{id}', [ProfileController::class, 'view_profile']);
+Route::get('/profile/{{id}}/comments', [ProfileController::class, 'view_comments']);
 Route::get('/profile/{id}/edit', [ProfileController::class, 'edit_profile']);
-
 Route::post('/profile/follow', [ProfileController::class, 'follow_user']);
 
 //profile Edit - Details/Media/Bio

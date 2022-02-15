@@ -153,8 +153,8 @@ class PostController extends Controller
         array_push($post_time_stamp, $time_stamp);                                
         // end getting timestamp
 
-        //make Like item in the database
-        if(Like::Where('user_id', Auth::user()->id)->Where('post_id', $post->id)->count() > 0){
+            //make Like item in the database
+            if(Like::Where('user_id', Auth::user()->id)->Where('post_id', $post->id)->count() > 0){
             //profile follow database items already exists
             }
             else{
@@ -223,7 +223,7 @@ class PostController extends Controller
                                 'post_reposts_count' => $post_reposts_count
         ]);
     }
-    
+
     // Create Post
     public function new_post(Request $request){
 
@@ -253,9 +253,9 @@ class PostController extends Controller
         }
         return back();
     }
-
     public function like_post(Request $request){
         $like = Like::Where('post_id', $request->post_id)->where('user_id', $request->user_id)->first();
+
         //Follow user if not yet followed
         if($like->liked == 0){
             Like::Where('post_id', $request->post_id)->where('user_id', $request->user_id)->update(['liked' => 1]);
@@ -268,7 +268,6 @@ class PostController extends Controller
 
         return back();
     }
-
     public function repost_post(Request $request){
         $repost = Repost::Where('post_id', $request->post_id)->where('user_id', $request->user_id)->first();
 
@@ -284,7 +283,6 @@ class PostController extends Controller
 
         return back();
     }
-
     public function favorite_post(Request $request){
         $favorite = Favorite::Where('post_id', $request->post_id)->where('user_id', $request->user_id)->first();
 
@@ -300,7 +298,6 @@ class PostController extends Controller
 
         return back();
     }
-
     // Delete Post
     public function delete_post(Request $request){
         $post = Post::find($request->post_id);

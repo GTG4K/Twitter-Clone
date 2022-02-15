@@ -7,6 +7,95 @@
   transition: all 0.2s ease;
   padding-left: 20px;
 }
+.home_container .home_main .home_element {
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 12px;
+  transition: 0.2s;
+  background: #2b2a3073;
+  margin-bottom: 10px;
+}
+.home_container .home_main .home_element .home_element_title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  color: white;
+}
+.home_container .home_main .home_element .home_element_title i {
+  padding: 0 10px;
+  font-size: 16px;
+}
+.home_container .home_main .home_element .home_element_title h2 {
+  font-size: 16px;
+  font-weight: 600;
+}
+.home_container .home_main .home_element .user {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px;
+  transition: 0.2s ease;
+  border-left: solid 3px rgba(255, 255, 255, 0);
+}
+.home_container .home_main .home_element .user img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.home_container .home_main .home_element .user .user_details {
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.home_container .home_main .home_element .user h2 {
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+}
+.home_container .home_main .home_element .user p {
+  color: #8f8f8f;
+  font-size: 13px;
+  padding-top: 1px;
+  font-weight: 400;
+  height: 18px;
+  overflow: hidden;
+}
+.home_container .home_main .home_element .user:hover {
+  border-left: solid 3px white;
+  background-color: #42404b1e;
+  transition: 0.2s ease;
+}
+.home_container .home_main .home_element .user button {
+  justify-content: space-evenly;
+  background: #534892;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  width: 90px;
+  height: 30px;
+  position: relative;
+  z-index: 3;
+  transition: 0.2s;
+}
+.home_container .home_main .home_element .user button:hover {
+  background: #6b5dbd;
+  transition: 0.2s;
+}
+.home_container .home_main .home_element .user button.unfollow {
+  background: rgba(83, 72, 146, 0);
+  border: solid 1px;
+  border-color: #353341;
+  transition: 0.2s;
+}
+.home_container .home_main .home_element .user button.unfollow:hover {
+  background: #b84343;
+  transition: 0.2s;
+}
 .home_container .home_main .new_post {
   display: flex;
   align-items: center;
@@ -490,6 +579,16 @@
 }
 .home_container .home_side .side_element .user button:hover {
   background: #6b5dbd;
+  transition: 0.2s;
+}
+.home_container .home_side .side_element .user button.unfollow {
+  background: rgba(83, 72, 146, 0);
+  border: solid 1px;
+  border-color: #353341;
+  transition: 0.2s;
+}
+.home_container .home_side .side_element .user button.unfollow:hover {
+  background: #b84343;
   transition: 0.2s;
 }
 .home_container .home_side .side_element .search_result_container {

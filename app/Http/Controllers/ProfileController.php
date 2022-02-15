@@ -203,9 +203,7 @@ class ProfileController extends Controller
                                         'post_reposts_count' => $post_reposts_count
                                     ]);
     }
-
     //Follow / Unfollow User
-
     public function follow_user(Request $request){
         
         $follow = Follow::Where('follower_id', Auth::user()->id)->Where('following_id', $request->following_id)->first();
@@ -222,7 +220,6 @@ class ProfileController extends Controller
 
         return back();
     }
-
     //EDIT PERSONAL PROFILE DETAILS
     public function edit_profile($id){
 
