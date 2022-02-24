@@ -14,103 +14,26 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File; 
 use Illuminate\Support\Facades\Redirect;
 
-class PostController extends Controller
-{
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+use function App\Http\Controllers\get_timestamps as ControllersGet_timestamps;
 
-    public function view_post($id){
-        $post = Post::find($id);
-        $comments = Comment::where('post_id', $id)->get();
+function get_timestamps($created_at){
 
-        $post_author = User::find($post->user_id);
-        $comment_authors = [];
-        $comment_time_stamps = [];
-        $post_time_stamp = [];
+    //needs array $time_stamps and object created_at data.
+    // $created_at = $posts[$i]->created_at;
 
-        $post_favorites = [];
-        $post_likes = [];
-        $post_reposts = [];
+    //$time_stamps[0] - Month 
+    //$time_stamps[1] - Day
+    //$time_stamps[2] - Year
 
-        $post_favorites_count = [];
-        $post_likes_count = [];
-        $post_reposts_count = [];
+    $time_stamps = [];
+    $split_created_at = explode(" ", $created_at);
+    $day = $split_created_at[0];
+    $time = $split_created_at[1];
+    $time_stamp = [];
+    $year_split = explode("-", $day,2);
+    $month_split = explode('-',$year_split[1]);
 
-        //getting timestamps
-        for($i=0; $i<$comments->count(); $i++){
-            //getting comment
-            $comment = Comment::find($comments[$i]->id);
-
-            //getting commenters usernames
-            $user = User::find($comments[$i]->user_id);
-            array_push($comment_authors, $user);
-
-            // getting time
-            $created_at = $comment->created_at;
-            $split_created_at = explode(" ", $created_at);
-  
-            $day = $split_created_at[0];
-            $time = $split_created_at[1];
-  
-            $time_stamp = [];
-  
-            $year_split = explode("-", $day,2);
-            $month_split = explode('-',$year_split[1]);
-  
-            //getting month posted
-            switch ($month_split[0]) {
-                  case '01':
-                      $month = 'Jan ';
-                      break;
-                  case '02':
-                      $month = 'Feb ';
-                      break;
-                  case '03':
-                      $month = 'Mar ';
-                      break;
-                  case '04':
-                      $month = 'Apr ';
-                      break;
-                  case '05':
-                      $month = 'May ';
-                      break;
-                  case '06':
-                      $month = 'Jun ';
-                      break;
-                  case '07':
-                      $month = 'Jul ';
-                      break;
-                  case '08':
-                      $month = 'Aug ';
-                      break;
-                  case '09':
-                      $month = 'Sep ';
-                      break;
-                  case '10':
-                      $month = 'Oct ';
-                      break;
-                  case '11':
-                      $month = 'Nov ';
-                      break;
-                  case '12':
-                      $month = 'Dec ';
-                      break;
-            }
-
-            array_push($time_stamp, $month, $month_split[1],  $year_split[0]);
-            array_push($comment_time_stamps, $time_stamp);           
-        }   
-
-        // getting post timestamp
-        $created_at = $post->created_at;
-        $split_created_at = explode(" ", $created_at);
-        $day = $split_created_at[0];
-        $time = $split_created_at[1];
-        $time_stamp = [];
-        $year_split = explode("-", $day,2);
-        $month_split = explode('-',$year_split[1]);
+    //getting month posted
         switch ($month_split[0]) {
             case '01':
                 $month = 'Jan ';
@@ -149,11 +72,50 @@ class PostController extends Controller
                 $month = 'Dec ';
                 break;
         }
-        array_push($time_stamp, $month, $month_split[1],  $year_split[0]);
-        array_push($post_time_stamp, $time_stamp);                                
-        // end getting timestamp
+            
+    array_push($time_stamp, $month, $month_split[1],  $year_split[0]);
+    return $time_stamp;  
+}
 
-            //make Like item in the database
+class PostController extends Controller
+{
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    public function view_post($id){
+        $post = Post::find($id);
+        $comments = Comment::where('post_id', $id)->get();
+
+        $post_author = User::find($post->user_id);
+        $comment_authors = [];
+        $comment_time_stamps = [];
+        $post_time_stamp = [];
+
+        $post_favorites = [];
+        $post_likes = [];
+        $post_reposts = [];
+
+        $post_favorites_count = [];
+        $post_likes_count = [];
+        $post_reposts_count = [];
+
+        //getting post comment information
+        for($i=0; $i<$comments->count(); $i++){
+            //getting comment
+            $comment = Comment::find($comments[$i]->id);
+
+            //getting commenters usernames
+            $user = User::find($comments[$i]->user_id);
+            array_push($comment_authors, $user);
+
+            // getting time
+            array_push($comment_time_stamps, Get_timestamps($comment->created_at));           
+        }   
+
+        // getting post timestamp
+            array_push($post_time_stamp, Get_timestamps($post->created_at));                                
+         //make Like item in the database
             if(Like::Where('user_id', Auth::user()->id)->Where('post_id', $post->id)->count() > 0){
             //profile follow database items already exists
             }
@@ -168,7 +130,7 @@ class PostController extends Controller
             $likes = Like::Where('post_id', $post->id)->where('user_id', Auth::user()->id)->get();
             array_push($post_likes, $likes);
             
-            //make Favorite item in the database
+        //make Favorite item in the database
             if(Favorite::Where('user_id', Auth::user()->id)->Where('post_id', $post->id)->count() > 0){
                 //profile follow database items already exists
             }
@@ -183,7 +145,7 @@ class PostController extends Controller
             $favorites = Favorite::Where('post_id', $post->id)->where('user_id', Auth::user()->id)->get();
             array_push($post_favorites, $favorites);
             
-            //make Repost item in the database
+        //make Repost item in the database
             if(Repost::Where('user_id', Auth::user()->id)->Where('post_id', $post->id)->count() > 0){
                 //profile follow database items already exists
             }
@@ -199,7 +161,7 @@ class PostController extends Controller
             array_push($post_reposts, $repost);
             
             
-            //getting int amounts of LIKES/FAVORITES/REPOSTS
+        //getting int amounts of LIKES/FAVORITES/REPOSTS
             $likes = Like::Where('post_id', $post->id)->Where('liked', 1)->count();
             array_push($post_likes_count, $likes);
             
@@ -223,7 +185,6 @@ class PostController extends Controller
                                 'post_reposts_count' => $post_reposts_count
         ]);
     }
-
     // Create Post
     public function new_post(Request $request){
 
