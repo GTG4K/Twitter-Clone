@@ -34,11 +34,15 @@ Route::get('/users', [HomeController::class, 'view_users']);
 
 //profile
 Route::get('/profile/{id}', [ProfileController::class, 'view_profile']);
-Route::get('/profile/{{id}}/comments', [ProfileController::class, 'view_comments']);
-Route::get('/profile/{id}/edit', [ProfileController::class, 'edit_profile']);
+Route::get('/profile/{id}/comments', [ProfileController::class, 'view_comments']);
+Route::get('/profile/{id}/bookmarks', [ProfileController::class, 'view_bookmarks']);
+Route::get('/profile/{id}/likes', [ProfileController::class, 'view_likes']);
+
 Route::post('/profile/follow', [ProfileController::class, 'follow_user']);
 
 //profile Edit - Details/Media/Bio
+Route::get('/profile/{id}/edit', [ProfileController::class, 'edit_profile']);
+
 Route::post('/profile/edit/details', [ProfileController::class, 'profile_edit_details']);
 Route::post('/profile/edit/media', [ProfileController::class, 'profile_edit_media']);
 Route::post('/profile/edit/bio', [ProfileController::class, 'profile_edit_bio']);

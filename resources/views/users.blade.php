@@ -63,4 +63,6 @@
     </div>
 </div>
 
+<script type="text/javascript" src="{{url('js/search.js')}}"></script>
+
 @endsection

@@ -83,7 +83,7 @@
                 @endif
             </div>
 
-            <div class="post_spacing"></div>
+            {{-- <div class="post_spacing"></div> --}}
 
             <div class="post_stats">
                 <div class="post_stats_item">
@@ -167,7 +167,7 @@
                 </div>
             </div>
 
-            <div class="post_spacing"></div>
+            {{-- <div class="post_spacing"></div> --}}
 
             <form autocomplete="off" method='POST' action="/new_comment" enctype="multipart/form-data">
                 @csrf
@@ -228,9 +228,9 @@
                     @if(Auth::user()->id != $users[$i]->id)
                     <form method="POST" action="/profile/follow">
                         @csrf
-                        @if($users_follow_details[$i][1]==0)
+                        @if($users_follow_details[$i][0]->followed==0)
                         <button>Follow</button>
-                        @elseif($users_follow_details[$i][1]==1)
+                        @elseif($users_follow_details[$i][0]->followed==1)
                         <button class=unfollow>Following</button>
                         @endif
                         <input type="hidden" value="{{Auth::user()->id}}" name="follower_id">
@@ -248,11 +248,10 @@
         </div>
 
         <footer>
-            <p>საიტი თუ უბერავს და Cashe-ის წაშლა არ შველის შეგიქლიათ თარხნას შეხვდეთ ბიბლიოთეკაში</p>
+            <p>საიტი თუ უბერავს და Cashe-ის წაშლა არ შველის შეგიძლიათ თარხნას შეხვდეთ ბიბლიოთეკაში</p>
         </footer>
     </div>
 </div>
 
-<script type="text/javascript" src="{{url('js/search.js')}}"></script>
 <script type="text/javascript" src="{{url('js/post.js')}}"></script>
 @endsection

@@ -66,31 +66,31 @@
                 {{-- <span class="tooltip"> Profile </span> --}}
             </li>
             <li>
-                <a href="#">
-                    <i class="far fa-envelope"></i>
-                    <span class="link_name"> Messages </span>
-                </a>
-                {{-- <span class="tooltip"> Messages </span> --}}
-            </li>
-            <li>
-                <a href="#">
-                    <i class="far fa-bell"></i>
-                    <span class="link_name"> Noatifications </span>
-                </a>
-                {{-- <span class="tooltip"> Noatifications </span> --}}
-            </li>
-            <li>
-                <a href="#">
+                <a href="/profile/{{Auth::user()->id}}/bookmarks">
                     <i class="far fa-bookmark"></i>
                     <span class="link_name"> Bookmarks </span>
                 </a>
                 {{-- <span class="tooltip"> Bookmarks </span> --}}
             </li>
             <li>
-                <a href="#">
+                {{-- <a href="#">
+                    <i class="far fa-envelope"></i>
+                    <span class="link_name"> Messages </span>
+                </a> --}}
+                {{-- <span class="tooltip"> Messages </span> --}}
+            </li>
+            <li>
+                {{-- <a href="#">
+                    <i class="far fa-bell"></i>
+                    <span class="link_name"> Noatifications </span>
+                </a> --}}
+                {{-- <span class="tooltip"> Noatifications </span> --}}
+            </li>
+            <li>
+                {{-- <a href="#">
                     <i class="fas fa-wallet"></i>
                     <span class="link_name"> Wallet </span>
-                </a>
+                </a> --}}
                 {{-- <span class="tooltip"> Wallet </span> --}}
             </li>
         </ul>
@@ -124,5 +124,6 @@
 </html>
 
 {{-- javascript --}}
+<script type="text/javascript" src="{{url('js/search.js')}}"></script>
 <script type="text/javascript" src="{{url('js/side_navbar.js')}}"></script>
 

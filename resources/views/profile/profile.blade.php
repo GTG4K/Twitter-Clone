@@ -83,16 +83,18 @@
             <div class="content_type">
                 <a href="/profile/{{$user->id}}">Posts</a>
                 <a href="/profile/{{$user->id}}/comments">Comments</a>
-                <a href="">Saved</a>
-                <a href="">Liked</a>
+                <a href="/profile/{{$user->id}}/bookmarks">Bookmarks</a>
+                <a href="/profile/{{$user->id}}/likes">Likes</a>
             </div>
 
         </div>
 
         <div class="content_box">
-
-            {{-- User posts --}}
-            @for($i=0; $i < $posts->count(); $i++)
+            @if(count($posts) == 0)
+            <h2>{{$user->name}} should probably post something.. </h2>
+            @endif
+            {{-- User posts and reposts--}}
+            @for($i=0; $i < count($posts); $i++)
             <div class="post">
             {{-- profile picture/ author name/ upload date/ additional info button --}}
                 <div class="post_header">
@@ -107,11 +109,11 @@
                                 </div>
                                 <div class="label">{{$time_stamps[$i][0]}} {{$time_stamps[$i][1]}}, {{$time_stamps[$i][2]}}</div>
                             </div>
-                            <p>{{$posts[$i]->description}}</p>
+                            <p>{{$posts[$i][0]->description}}</p>
                         </div>    
                     </div>
                 </a>
-                @if(Auth::user()->id == $posts[$i]->id or Auth::user()->name == 'Tarkhna')
+                @if(Auth::user()->id == $posts[$i][0]->id or Auth::user()->name == 'Tarkhna')
                 <div id="Dropdown" class="post_dropdown">
                     <i class="fas fa-ellipsis-h"></i>
                     <div class="post_dropdown_content">
@@ -122,7 +124,7 @@
                                     <i class="fas fa-trash-alt"></i>
                                     <p>Delete</p>
                                 </button>
-                                <input type="hidden" value="{{$posts[$i]->id}}" name="post_id">
+                                <input type="hidden" value="{{$posts[$i][0]->id}}" name="post_id">
                             </form>
                         </div>
                     </div>
@@ -131,8 +133,8 @@
                 </div>
 
                 <div class="post_body">
-                @if($posts[$i]->image != NULL)
-                <img src="{{$posts[$i]->image}}" alt="">
+                @if($posts[$i][0]->image != NULL)
+                <img src="{{$posts[$i][0]->image}}" alt="">
                 @endif
                 </div>
 
@@ -140,7 +142,7 @@
 
                 <div class="post_stats">
                 <div class="post_stats_item">
-                    <form action="/post/{{$posts[$i]->id}}">
+                    <form action="/post/{{$posts[$i][0]->id}}">
                         <button><i class="far fa-comment-alt"></i></button>
                         <span>{{$post_comments_count[$i]}}</span>
                     </form>

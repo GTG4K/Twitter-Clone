@@ -1,5 +1,6 @@
 .profile_container{
     width: 95%;
+    margin-bottom:12px;
 
     .profile_main{
         width: 50%;
@@ -40,7 +41,7 @@
             top: 0;
             position: absolute;
             width: 100%;
-            height: 260px;
+            height: 280px;
             object-fit: cover;
             border-radius: 20px 20px 0 0;
             filter:brightness(0.65);
@@ -213,10 +214,16 @@
     flex-direction: column;
     width: 100%;
 
+    &>h2{
+        color: white;
+        font-size: 15px;
+        text-align: center;
+        margin: 15px 0;
+    }
     //Posts Display
     .post{
         padding: 10px;
-        margin: 20px 0;
+        margin-top:12px;
         border-radius: 12px;
         transition: 0.2s;
         background: #2b2a3073;
@@ -466,6 +473,13 @@
                     outline: none;
                     transition: 0.2s;
                 }
+                p{
+                    color: rgb(200, 200, 200);
+                    padding: 5px 10px;
+                    font-size: 14px;
+                    padding-bottom: 8px;
+                    font-weight: 400;
+                }
             }
             .post_add_comment_inputs{
                 width: 30%;
@@ -525,6 +539,66 @@
             border-bottom:solid;
             border-color: rgba(255, 255, 255, 0.164);
             border-width: 1px;
+        }
+
+        .comment_details{
+            margin-top: 10px;
+            padding: 10px 0px 0 10px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: 0.2s;
+            background: #61616118;
+
+            &:hover{
+                transition: 0.2s;
+                background: #61616133;  
+            }
+
+            img{
+                margin-bottom: 7px;
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+            .details_holder{
+                display: flex;
+                flex-direction: column;
+
+                p{
+                    padding: 2px;
+                    color: rgb(200, 200, 200);
+                    padding-left: 10px;
+                    font-size: 14px;
+                    padding-bottom: 8px;
+                    font-weight: 400;
+                }
+            }
+            .name_date{
+                padding-left: 10px;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                color: white;
+                text-align: center;
+                .label{
+                    color: rgb(146, 146, 146);
+                    padding-top: 4px;
+                    font-size: 11px;
+                }
+                .separator{
+                    display: flex;
+                    align-items: center;
+        
+                    color: rgb(146, 146, 146);
+                    margin: 0 5px;
+                    i{
+                        font-size: 3px;
+                    }
+                }
+            }
         }
 
     }

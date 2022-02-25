@@ -48,12 +48,13 @@
                     <button><i class="far fa-envelope"></i></button>
 
                     <form method="POST" action="/profile/follow">
-                        @csrf
+                    @csrf
                         <button><i class="far fa-user"></i></button>
                         <input type="hidden" value="{{Auth::user()->id}}" name="follower_id">
                         <input type="hidden" value="{{$user->id}}" name="following_id">
                         <input type="hidden" value="{{$follow->id}}" name="follow_id">
                     </form>
+
                 @endif
                 @if($user->discord or $user->instagram or $user->twitter or $user->website)
                 
@@ -82,19 +83,15 @@
             <div class="content_type">
                 <a href="/profile/{{$user->id}}">Posts</a>
                 <a href="/profile/{{$user->id}}/comments">Comments</a>
-                <a href="/profile/{{$user->id}}/bookmarks">Bookmarks</a>
+                <a href="/profile/{{$user->id}}/bookmarks">bookmarks</a>
                 <a href="/profile/{{$user->id}}/likes">Likes</a>
             </div>
-
         </div>
 
-
-        {{-- anything below profile!! --}}
         <div class="content_box">
-
-            {{-- Posts and User Comments --}}
+            {{-- Bookmarked Posts --}}
             @if(count($posts) == 0)
-            <h2> {{$user->name}} is speechless <3</h2>
+            <h2> {{$user->name}} hasn't liked anything :( </h2>
             @endif
             @for($i=0; $i < sizeof($posts); $i++)
             <div class="post">
@@ -225,19 +222,6 @@
 
                 {{-- <div class="post_spacing"></div> --}}
 
-                <div class="comment_details">
-                    <img src="{{$user->profile_picture}}" alt="">
-                    <div class="details_holder">
-                        <div class="name_date">
-                            <h3>{{$user->name}}</h3>
-                            <div class='separator'>
-                                <i class="fas fa-circle"></i>
-                            </div>
-                            <div class="label">{{$comment_time_stamps[$i][0]}} {{$comment_time_stamps[$i][1]}}, {{$comment_time_stamps[$i][2]}}</div>
-                        </div>
-                        <p>{{$comments[$i]->comment}}</p>
-                    </div>
-                </div>
             </div>
             @endfor
         </div>
@@ -246,6 +230,6 @@
     <div class="profile_side">
 
     </div>
-
 </div>
+
 @endsection

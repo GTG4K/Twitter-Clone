@@ -1,5 +1,6 @@
 .profile_container {
   width: 95%;
+  margin-bottom: 12px;
 }
 .profile_container .profile_main {
   width: 50%;
@@ -38,7 +39,7 @@
   top: 0;
   position: absolute;
   width: 100%;
-  height: 260px;
+  height: 280px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 20px 20px 0 0;
@@ -202,9 +203,15 @@
   flex-direction: column;
   width: 100%;
 }
+.content_box > h2 {
+  color: white;
+  font-size: 15px;
+  text-align: center;
+  margin: 15px 0;
+}
 .content_box .post {
   padding: 10px;
-  margin: 20px 0;
+  margin-top: 12px;
   border-radius: 12px;
   transition: 0.2s;
   background: #2b2a3073;
@@ -439,6 +446,13 @@
   outline: none;
   transition: 0.2s;
 }
+.content_box .post .post_add_comment .post_add_comment_left p {
+  color: #c8c8c8;
+  padding: 5px 10px;
+  font-size: 14px;
+  padding-bottom: 8px;
+  font-weight: 400;
+}
 .content_box .post .post_add_comment .post_add_comment_inputs {
   width: 30%;
   min-width: 120px;
@@ -493,6 +507,62 @@
   border-bottom: solid;
   border-color: rgba(255, 255, 255, 0.164);
   border-width: 1px;
+}
+.content_box .post .comment_details {
+  margin-top: 10px;
+  padding: 10px 0px 0 10px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: 0.2s;
+  background: #61616118;
+}
+.content_box .post .comment_details:hover {
+  transition: 0.2s;
+  background: #61616133;
+}
+.content_box .post .comment_details img {
+  margin-bottom: 7px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.content_box .post .comment_details .details_holder {
+  display: flex;
+  flex-direction: column;
+}
+.content_box .post .comment_details .details_holder p {
+  padding: 2px;
+  color: #c8c8c8;
+  padding-left: 10px;
+  font-size: 14px;
+  padding-bottom: 8px;
+  font-weight: 400;
+}
+.content_box .post .comment_details .name_date {
+  padding-left: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  color: white;
+  text-align: center;
+}
+.content_box .post .comment_details .name_date .label {
+  color: #929292;
+  padding-top: 4px;
+  font-size: 11px;
+}
+.content_box .post .comment_details .name_date .separator {
+  display: flex;
+  align-items: center;
+  color: #929292;
+  margin: 0 5px;
+}
+.content_box .post .comment_details .name_date .separator i {
+  font-size: 3px;
 }
 .content_box .post:hover {
   background: #37363d73;

@@ -385,6 +385,8 @@
   justify-content: space-between;
   width: 100%;
   height: 70px;
+  border-radius: 12px;
+  margin-top: 10px;
 }
 .home_container .home_main .post .post_add_comment .post_add_comment_left {
   margin-left: 20px;
@@ -474,10 +476,6 @@
   border-bottom: solid;
   border-color: rgba(255, 255, 255, 0.164);
   border-width: 1px;
-}
-.home_container .home_main .post:hover {
-  background: #37363d73;
-  transition: 0.2s;
 }
 .home_container .home_side {
   width: 20%;

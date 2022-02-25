@@ -13,6 +13,69 @@ use App\Models\Follow;
 use App\Models\Like;
 use App\Models\Repost;
 
+use function App\Http\Controllers\get_timestamps as ControllersGet_timestamps;
+
+function get_timestamps($created_at){
+
+    //needs array $time_stamps and object created_at data.
+    // $created_at = $posts[$i]->created_at;
+
+    //$time_stamps[0] - Month 
+    //$time_stamps[1] - Day
+    //$time_stamps[2] - Year
+
+    $time_stamps = [];
+    $split_created_at = explode(" ", $created_at);
+    $day = $split_created_at[0];
+    $time = $split_created_at[1];
+    $time_stamp = [];
+    $year_split = explode("-", $day,2);
+    $month_split = explode('-',$year_split[1]);
+
+        //getting month posted
+    switch ($month_split[0]) {
+        case '01':
+            $month = 'Jan ';
+            break;
+        case '02':
+            $month = 'Feb ';
+            break;
+        case '03':
+            $month = 'Mar ';
+            break;
+        case '04':
+            $month = 'Apr ';
+            break;
+        case '05':
+            $month = 'May ';
+            break;
+        case '06':
+            $month = 'Jun ';
+            break;
+        case '07':
+            $month = 'Jul ';
+            break;
+        case '08':
+            $month = 'Aug ';
+            break;
+        case '09':
+            $month = 'Sep ';
+            break;
+        case '10':
+            $month = 'Oct ';
+            break;
+        case '11':
+            $month = 'Nov ';
+            break;
+        case '12':
+            $month = 'Dec ';
+            break;
+    }
+            
+    array_push($time_stamp, $month, $month_split[1],  $year_split[0]);
+    return $time_stamp;  
+}
+
 class HomeController extends Controller
 {
     /**
@@ -92,57 +155,8 @@ class HomeController extends Controller
             $comments = Comment::where('post_id',$post->id)->get();
             array_push($post_comments_count, $comments->count());
             
-
-            // getting time
-            $created_at = $post->created_at;
-            $split_created_at = explode(" ", $created_at);
-            $day = $split_created_at[0];
-            $time = $split_created_at[1];
-            $time_stamp = [];
-            $year_split = explode("-", $day,2);
-            $month_split = explode('-',$year_split[1]);
-            //getting month posted
-            switch ($month_split[0]) {
-                case '01':
-                    $month = 'Jan ';
-                    break;
-                case '02':
-                    $month = 'Feb ';
-                    break;
-                case '03':
-                    $month = 'Mar ';
-                    break;
-                case '04':
-                    $month = 'Apr ';
-                    break;
-                case '05':
-                    $month = 'May ';
-                    break;
-                case '06':
-                    $month = 'Jun ';
-                    break;
-                case '07':
-                    $month = 'Jul ';
-                    break;
-                case '08':
-                    $month = 'Aug ';
-                    break;
-                case '09':
-                    $month = 'Sep ';
-                    break;
-                case '10':
-                    $month = 'Oct ';
-                    break;
-                case '11':
-                    $month = 'Nov ';
-                    break;
-                case '12':
-                    $month = 'Dec ';
-                    break;
-            }
-            
-            array_push($time_stamp, $month, $month_split[1],  $year_split[0]);
-            array_push($time_stamps, $time_stamp);     
+            //getting Timestamps
+            array_push($time_stamps, Get_timestamps($post->created_at));     
 
 
              //make Like item in the database

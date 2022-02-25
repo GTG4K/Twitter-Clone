@@ -28,7 +28,7 @@
                         </div>    
                     </div>
                 </a>
-                @if(Auth::user()->id == $posts[$i]->id or Auth::user()->name == 'Tarkhna')
+                @if(Auth::user()->id == $post->id or Auth::user()->name == 'Tarkhna')
                 <div id="Dropdown" class="post_dropdown">
                     <i class="fas fa-ellipsis-h"></i>
                     <div class="post_dropdown_content">
@@ -180,7 +180,7 @@
                         </div>    
                     </div>
                 </a>
-                @if(Auth::user()->id == $posts[$i]->id or Auth::user()->name == 'Tarkhna')
+                @if(Auth::user()->id == $comments[$i]->id or Auth::user()->name == 'Tarkhna')
                 <div id="Dropdown" class="post_dropdown">
                     <i class="fas fa-ellipsis-h"></i>
                     <div class="post_dropdown_content">
